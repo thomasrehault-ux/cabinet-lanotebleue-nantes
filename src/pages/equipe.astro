@@ -94,11 +94,11 @@ const axes = [
   canonicalPath="/equipe"
 >
   <!-- ========== HERO ========== -->
-  <section class="hero-page">
-    <div class="container">
+  <section class="hero hero-page">
+    <div class="hero-inner reveal">
       <div class="hero-label">L'équipe</div>
-      <h1 class="hero-title">Trois axes de soin,<br />une même exigence clinique.</h1>
-      <p class="hero-subtitle">
+      <h1>Trois axes de soin, <em>une même exigence</em> clinique.</h1>
+      <p class="hero-lede">
         Les troubles du comportement alimentaire traversent le corps, l'esprit et l'histoire.
         Aucune discipline seule ne suffit. Notre équipe pluridisciplinaire travaille en synergie,
         autour d'un projet de soin commun pour chaque patient.
@@ -191,40 +191,18 @@ const axes = [
     padding: 0 2rem;
   }
 
-  /* ========== HERO PAGE ========== */
+  /* ========== HERO PAGE — override du hero de la home ========== */
   .hero-page {
-    padding: 11rem 0 5rem;
-    background: var(--warm-white);
-    border-bottom: 1px solid rgba(30, 58, 95, 0.08);
+    padding: 4.5rem 2rem 5rem;
   }
-
-  .hero-label {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
+  .hero-page h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    max-width: 900px;
   }
-
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
-    font-weight: 400;
-    line-height: 1.15;
-    color: var(--blue-deep);
-    margin-bottom: 1.8rem;
-    letter-spacing: -0.01em;
-  }
-
-  .hero-subtitle {
-    font-family: var(--font-body);
-    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
-    line-height: 1.7;
-    color: var(--text-secondary);
+  .hero-page .hero-lede {
+    font-size: 1.05rem;
     max-width: 720px;
-    font-weight: 300;
+    margin-bottom: 0;
   }
 
   /* ========== AXE SECTION ========== */
@@ -470,7 +448,7 @@ const axes = [
   /* ========== RESPONSIVE ========== */
   @media (max-width: 768px) {
     .hero-page {
-      padding: 9rem 0 4rem;
+      padding: 3rem 1.2rem 3.5rem;
     }
 
     .axe-section {
