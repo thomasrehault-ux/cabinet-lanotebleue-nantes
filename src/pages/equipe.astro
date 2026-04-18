@@ -11,6 +11,7 @@ const axes = [
       {
         nom: 'Aude Réhault',
         role: 'Psychologue clinicienne · Cofondatrice du cabinet',
+        photo: '/public/images/Aude Réhault.jpg'
         formation: "EPP Paris · DU Psychotraumatologie, Université Paris Descartes · Formation à l'hypnose, IFH",
         note: "Fondatrice de La Note Bleue. Autrice d'un ouvrage paru chez Dunod en 2023.",
         doctolib: 'https://www.doctolib.fr/psychologue/nantes/aude-rehault',
@@ -115,8 +116,13 @@ const axes = [
         <div class="praticiens-grid">
           {axe.praticiens.map((p) => (
             <article class="praticien-card">
-              <h3 class="praticien-nom">{p.nom}</h3>
-              <p class="praticien-role">{p.role}</p>
+  <div class="praticien-header">
+    {p.photo && <img src={p.photo} alt={p.nom} class="praticien-photo" loading="lazy" />}
+    <div class="praticien-ident">
+      <h3 class="praticien-nom">{p.nom}</h3>
+      <p class="praticien-role">{p.role}</p>
+    </div>
+  </div>
               {p.formation && <p class="praticien-formation">{p.formation}</p>}
               {p.note && <p class="praticien-note">{p.note}</p>}
               {p.doctolib && p.doctolib !== '#' ? (
@@ -224,7 +230,27 @@ const axes = [
     transform: translateY(-2px);
     box-shadow: 0 10px 28px rgba(30, 58, 95, 0.1);
   }
+.praticien-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
 
+.praticien-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--gold);
+  box-shadow: 0 2px 6px rgba(30, 58, 95, 0.1);
+}
+
+.praticien-ident {
+  flex: 1;
+  min-width: 0;
+}
   .praticien-nom {
     font-family: var(--font-display);
     font-size: 1.5rem;
