@@ -173,7 +173,28 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
       background: var(--gold-deep);
       color: white;
     }
-
+/* === Hamburger mobile === */
+.nav-burger {
+  display: none;
+  width: 36px; height: 36px;
+  background: none; border: none;
+  padding: 0; margin: 0;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.nav-burger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--blue-deep);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.is-open span:nth-child(2) { opacity: 0; }
+.nav-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     /* === Hero === */
     .hero {
       background: var(--blue-deep);
@@ -796,7 +817,44 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
       .top-strip { font-size: 0.65rem; padding: 0.45rem 1rem; }
       .top-strip .sep { display: none; }
       nav { padding: 0 1.2rem; height: 72px; }
-      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+
+.nav-links {
+  display: flex;
+  position: fixed;
+  top: 72px;
+  left: 0; right: 0;
+  background: white;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 0.5rem 1.2rem 1.5rem;
+  border-top: 1px solid var(--border);
+  box-shadow: 0 12px 24px rgba(30, 58, 95, 0.08);
+  transform: translateY(-120%);
+  transition: transform 0.35s ease;
+  z-index: 400;
+}
+.nav-links.is-open {
+  transform: translateY(0);
+}
+.nav-links li {
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+}
+.nav-links li:last-child {
+  border-bottom: none;
+}
+.nav-links a {
+  display: block;
+  width: 100%;
+  padding: 1rem 0;
+  border-bottom: none;
+}
+.nav-cta {
+  padding: 0.55rem 0.9rem;
+  font-size: 0.68rem;
+}
       .hero { padding: 4rem 1.2rem 5rem; }
       section { padding: 4.5rem 1.2rem; }
       .footer-content { grid-template-columns: 1fr; gap: 2rem; }
@@ -820,6 +878,11 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
       <small>Cabinet · Nantes</small>
     </div>
   </a>
+  <button class="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
   <ul class="nav-links">
     <li><a href="/parcours">Parcours de soin</a></li>
     <li><a href="/mental-restrictif">Mental restrictif</a></li>
@@ -898,6 +961,25 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
         }
       });
     }, 1500);
+// Toggle du menu mobile
+var burger = document.querySelector('.nav-burger');
+var navLinks = document.querySelector('.nav-links');
+if (burger && navLinks) {
+  burger.addEventListener('click', function () {
+    var isOpen = burger.classList.toggle('is-open');
+    navLinks.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    burger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+  navLinks.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      burger.classList.remove('is-open');
+      navLinks.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Ouvrir le menu');
+    });
+  });
+}
   })();
 </script>
 
