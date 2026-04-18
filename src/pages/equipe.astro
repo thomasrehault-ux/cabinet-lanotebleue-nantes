@@ -4,16 +4,14 @@ import Layout from '../layouts/Layout.astro';
 const axes = [
   {
     id: 'psychologie',
-    numero: '01',
-    titre: 'Psychologie',
-    soustitre: 'Comprendre, traverser, réparer',
-    description: "Travail sur l'histoire, l'image du corps, le mental restrictif, le trauma. Accompagnement individuel, et aussi en couple ou en famille lorsque cela fait sens.",
+    titre: 'Psychologie clinique · psychothérapie',
+    description: "Travail sur le mental restrictif, la dualité intérieure, la restauration progressive d'une sécurité intérieure et d'une présence à soi unifiée.",
     praticiens: [
       {
         nom: 'Aude Réhault',
         role: 'Psychologue clinicienne · Cofondatrice du cabinet',
         formation: "EPP Paris · DU Psychotraumatologie, Université Paris Descartes · Formation à l'hypnose, IFH",
-        note: "Créatrice de SOS Anor Grand Ouest en 2017. Autrice d'un ouvrage paru chez Dunod en 2023.",
+        note: "Fondatrice de La Note Bleue. Autrice d'un ouvrage paru chez Dunod en 2023.",
         doctolib: 'https://www.doctolib.fr/psychologue/nantes/aude-rehault',
       },
       {
@@ -27,17 +25,15 @@ const axes = [
         nom: 'Nathalie Saget',
         role: 'Psychologue clinicienne · Thérapeute conjugale et familiale',
         formation: 'DESS Paris 7 · DU Paris 6 · DFSSU Paris 8',
-        note: 'Accompagnements individuels, en couple et en famille.',
+        note: 'Accompagnements des couples et des familles.',
         doctolib: 'https://www.doctolib.fr/psychologue/nantes/nathalie-saget',
       },
     ],
   },
   {
     id: 'dietetique',
-    numero: '02',
-    titre: 'Diététique & nutrition',
-    soustitre: 'Réapprendre à se nourrir, sans peur',
-    description: "Un accompagnement nutritionnel patient, sans injonction, qui tient compte du corps et de ce que la maladie a déréglé. Micronutrition, rééducation alimentaire, réconciliation avec la faim et la satiété.",
+    titre: 'Diététique · nutrition',
+    description: "Accompagnement alimentaire intégratif, restauration de l'intéroception, travail sur les croyances alimentaires, sortie progressive du contrôle.",
     praticiens: [
       {
         nom: 'Julie Basset',
@@ -64,10 +60,8 @@ const axes = [
   },
   {
     id: 'psychomotricite',
-    numero: '03',
     titre: 'Psychomotricité',
-    soustitre: 'Réhabiter son corps',
-    description: "Un travail corporel doux et progressif pour restaurer le lien au corps vécu : relaxation, respiration, conscience corporelle, pratiques médiatisées. Essentiel dans les troubles où le corps est devenu étranger.",
+    description: "Travail sur l'enveloppe corporelle, les limites, l'ancrage, la modulation tonique, la restauration d'une sécurité corporelle vécue.",
     praticiens: [
       {
         nom: 'Blanche Augarde-Dollé',
@@ -99,8 +93,7 @@ const axes = [
       <div class="hero-label">L'équipe</div>
       <h1>Trois axes de soin, <em>une même exigence</em> clinique.</h1>
       <p class="hero-lede">
-        Les troubles du comportement alimentaire traversent le corps, l'esprit et l'histoire.
-        Aucune discipline seule ne suffit. Notre équipe pluridisciplinaire travaille en synergie,
+        Notre équipe pluridisciplinaire travaille en synergie,
         autour d'un projet de soin commun pour chaque patient.
       </p>
     </div>
@@ -111,11 +104,7 @@ const axes = [
     <section class="axe-section reveal" id={axe.id}>
       <div class="container">
         <div class="axe-header">
-          <div class="axe-numero">{axe.numero}</div>
-          <div class="axe-titre-bloc">
-            <h2 class="axe-titre">{axe.titre}</h2>
-            <p class="axe-soustitre">{axe.soustitre}</p>
-          </div>
+          <h2 class="axe-titre">{axe.titre}</h2>
         </div>
         <p class="axe-description">{axe.description}</p>
 
@@ -142,43 +131,29 @@ const axes = [
     </section>
   ))}
 
-  <!-- ========== ADRESSE ========== -->
-  <section class="adresse-section reveal">
+  <!-- ========== SYNERGIE ========== -->
+  <section class="synergie-section reveal">
     <div class="container">
-      <div class="adresse-inner">
-        <div class="adresse-label">Un lieu unique</div>
-        <h2 class="adresse-titre">Toute l'équipe sous le même toit.</h2>
-        <p class="adresse-texte">
-          Les consultations ont toutes lieu à la même adresse, à Nantes. Ce choix n'est pas
-          logistique : il permet la circulation discrète de l'information clinique entre
-          praticiens, et évite au patient de raconter son histoire à chaque porte.
-        </p>
-        <p class="adresse-address">
-          Cabinet La Note Bleue<br />
-          6 et 7 rue des Rochettes<br />
-          44000 Nantes
-        </p>
+      <div class="synergie-inner">
+        <div class="synergie-label">L'articulation clinique</div>
+        <h2 class="synergie-titre">Une synergie active, pas trois suivis en parallèle.</h2>
+        <div class="synergie-prose">
+          <p>
+            La synergie n'est pas la juxtaposition de trois consultations. C'est la
+            coordination active entre la psychologue, la diététicienne et la
+            psychomotricienne, chacune attentive à ce que les deux autres travaillent,
+            chacune capable de prendre le relais quand le travail d'une autre ouvre une
+            porte.
+          </p>
+          <p>
+            Un déclic alimentaire peut ouvrir une question corporelle qui va elle-même
+            débloquer un aspect psychique. Inversement, un mouvement psychique peut
+            rendre possible une étape alimentaire. C'est cette circulation entre les
+            trois axes qui rend le soin possible là où une seule porte d'entrée
+            resterait fermée.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ========== CTA ========== -->
-  <section class="cta-final reveal">
-    <div class="container">
-      <h2 class="cta-titre">Prendre rendez-vous.</h2>
-      <p class="cta-texte">
-        Chaque praticien gère son propre agenda Doctolib. Choisissez l'axe qui correspond à
-        votre situation, ou contactez-nous si vous avez besoin d'être orienté vers le bon
-        praticien.
-      </p>
-      <div class="cta-actions">
-        <a href="#psychologie" class="btn-secondary btn-secondary-dark">Psychologie</a>
-        <a href="#dietetique" class="btn-secondary btn-secondary-dark">Diététique</a>
-        <a href="#psychomotricite" class="btn-secondary btn-secondary-dark">Psychomotricité</a>
-      </div>
-      <p class="cta-note">
-        Besoin d'aide pour choisir ? <a href="/contact">Nous écrire</a>.
-      </p>
     </div>
   </section>
 </Layout>
@@ -217,41 +192,15 @@ const axes = [
   }
 
   .axe-header {
-    display: flex;
-    align-items: baseline;
-    gap: 2.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .axe-numero {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 3.5rem;
-    color: var(--gold);
-    line-height: 1;
-    font-weight: 400;
-    flex-shrink: 0;
-  }
-
-  .axe-titre-bloc {
-    flex: 1;
+    margin-bottom: 1.8rem;
   }
 
   .axe-titre {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
     font-weight: 400;
     color: var(--blue-deep);
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-  }
-
-  .axe-soustitre {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 1.15rem;
-    color: var(--gold);
-    font-weight: 400;
+    line-height: 1.15;
   }
 
   .axe-description {
@@ -345,18 +294,18 @@ const axes = [
     font-weight: 300;
   }
 
-  /* ========== ADRESSE ========== */
-  .adresse-section {
+  /* ========== SYNERGIE ========== */
+  .synergie-section {
     padding: 6rem 0;
     background: var(--blue-deep);
     color: var(--warm-white);
   }
 
-  .adresse-inner {
-    max-width: 720px;
+  .synergie-inner {
+    max-width: 760px;
   }
 
-  .adresse-label {
+  .synergie-label {
     font-family: var(--font-body);
     font-size: 0.8rem;
     font-weight: 500;
@@ -366,83 +315,26 @@ const axes = [
     margin-bottom: 1.2rem;
   }
 
-  .adresse-titre {
+  .synergie-titre {
     font-family: var(--font-display);
     font-size: clamp(1.8rem, 3vw, 2.4rem);
     font-weight: 400;
     line-height: 1.2;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     color: var(--warm-white);
   }
 
-  .adresse-texte {
+  .synergie-prose p {
     font-family: var(--font-body);
     font-size: 1.05rem;
-    line-height: 1.75;
-    color: rgba(255, 255, 255, 0.82);
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-  }
-
-  .adresse-address {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 1.2rem;
     line-height: 1.8;
-    color: var(--gold);
-    font-weight: 400;
-  }
-
-  /* ========== CTA FINAL ========== */
-  .cta-final {
-    padding: 6rem 0;
-    background: var(--cream);
-    text-align: center;
-  }
-
-  .cta-titre {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
-    font-weight: 400;
-    color: var(--blue-deep);
-    line-height: 1.15;
-    margin-bottom: 1.2rem;
-  }
-
-  .cta-texte {
-    font-family: var(--font-body);
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: var(--text-secondary);
-    max-width: 620px;
-    margin: 0 auto 2.5rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 1.4rem;
     font-weight: 300;
   }
 
-  .cta-actions {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-  }
-
-  .cta-note {
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    font-weight: 300;
-  }
-
-  .cta-note a {
-    color: var(--blue-deep);
-    text-decoration: none;
-    border-bottom: 1px solid var(--gold);
-    transition: color 0.3s ease;
-  }
-
-  .cta-note a:hover {
-    color: var(--gold);
+  .synergie-prose p:last-child {
+    margin-bottom: 0;
   }
 
   /* ========== RESPONSIVE ========== */
@@ -455,16 +347,7 @@ const axes = [
       padding: 4rem 0;
     }
 
-    .axe-header {
-      gap: 1.5rem;
-    }
-
-    .axe-numero {
-      font-size: 2.5rem;
-    }
-
-    .adresse-section,
-    .cta-final {
+    .synergie-section {
       padding: 4rem 0;
     }
 
