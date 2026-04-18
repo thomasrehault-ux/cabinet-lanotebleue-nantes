@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Ressources · Cabinet La Note Bleue · Nantes"
+  description="Le livre d'Aude Réhault publié chez Dunod, et une interview vidéo pour approfondir l'approche clinique du cabinet : mental restrictif, synergie des trois axes, trajectoire de soin."
+  canonicalPath="/ressources"
+>
+
+<!-- Hero de page -->
+<section class="hero hero-page">
+  <div class="hero-inner reveal">
+    <div class="hero-label">Ressources</div>
+    <h1>Pour <em>aller plus loin</em></h1>
+    <p class="hero-lede">Une sélection resserrée : le livre clinique d'Aude Réhault et une interview vidéo qui prolongent les notions posées sur ce site.</p>
+  </div>
+</section>
+
+<!-- Section Livre -->
+<section class="bg-cream">
+  <div class="inner reveal">
+    <div class="livre-grid">
+      <div class="livre-visuel">
+        <img
+          src="/ressources/livre-cover.jpg"
+          alt="Couverture du livre Sortir de l'anorexie et de la boulimie d'Aude Réhault"
+          loading="lazy"
+        />
+      </div>
+      <div class="livre-content">
+        <div class="section-label">Le livre</div>
+        <h2>Sortir de l'anorexie <em>et de la boulimie</em></h2>
+        <div class="author">Construire sa trajectoire de soin</div>
+        <div class="author-sub">Aude Réhault · Éditions Dunod, 2023</div>
+        <div class="divider-gold"></div>
+        <p>Un ouvrage issu de trente années d'accompagnement clinique. Aude Réhault y expose la notion de <em>mental restrictif</em> et propose une lecture intégrative du soin, articulée autour des trois axes — psychique, corporel, alimentaire — qui structurent aussi le travail du cabinet.</p>
+        <p>Ce livre s'adresse aux personnes concernées par un trouble du comportement alimentaire, à leurs proches, ainsi qu'aux professionnels cherchant à penser autrement la trajectoire de soin.</p>
+        <div class="btn-group">
+          <a
+            href="https://www.dunod.com/sciences-humaines-et-sociales/sortir-anorexie-et-boulimie-construire-sa-trajectoire-soin"
+            class="btn-primary btn-primary-light"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Voir sur Dunod
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Interview -->
+<section class="bg-warm-white">
+  <div class="inner-narrow reveal">
+    <div class="section-head section-head-simple">
+      <div class="section-head-text">
+        <div class="section-label">Interview</div>
+        <h2>Aude Réhault, <em>en conversation</em></h2>
+      </div>
+    </div>
+    <div class="divider-gold"></div>
+    <p class="video-lede">
+      Une interview filmée pour entendre Aude Réhault présenter son parcours, sa clinique
+      des troubles des conduites alimentaires et ce qui fonde l'approche du cabinet.
+    </p>
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/PsuEGGgvP1s"
+        title="Interview d'Aude Réhault"
+        frameborder="0"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+</Layout>
+
+<style>
+  /* === Hero de page intérieure — cohérent avec Parcours/Équipe === */
+  .hero-page {
+    padding: 4.5rem 2rem 5rem;
+  }
+  .hero-page h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    max-width: 820px;
+  }
+  .hero-page .hero-lede {
+    font-size: 1.05rem;
+    max-width: 680px;
+    margin-bottom: 0;
+  }
+
+  /* === Section livre — reprise du pattern de l'index === */
+  .livre-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.6fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .livre-visuel {
+    position: relative;
+  }
+  .livre-visuel::before {
+    content: '';
+    position: absolute;
+    top: 20px; right: -20px;
+    width: 100%; height: 100%;
+    background: var(--gold);
+    opacity: 0.15;
+    z-index: 0;
+  }
+  .livre-visuel img {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    display: block;
+    box-shadow: 0 20px 50px rgba(30, 58, 95, 0.22);
+    border-radius: 4px;
+  }
+  .livre-content h2 {
+    margin-bottom: 0.8rem;
+  }
+  .livre-content .author {
+    font-style: italic;
+    color: var(--gold-deep);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+  }
+  .livre-content .author-sub {
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+  .livre-content p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.85;
+    margin-bottom: 1.3rem;
+  }
+  .livre-content p:last-of-type {
+    margin-bottom: 2rem;
+  }
+  .livre-content .btn-group {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* === Section interview vidéo === */
+  .video-lede {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--blue-deep);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(30, 58, 95, 0.18);
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* === Responsive === */
+  @media (max-width: 768px) {
+    .hero-page {
+      padding: 3rem 1.2rem 3.5rem;
+    }
+    .livre-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .livre-visuel::before {
+      top: 12px;
+      right: -12px;
+    }
+  }
+</style>
