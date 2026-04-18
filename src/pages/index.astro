@@ -1,1252 +1,723 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cabinet La Note Bleue · Nantes | Trajectoire de soin des troubles alimentaires</title>
-  <meta name="description" content="Cabinet pluridisciplinaire nantais spécialisé dans la trajectoire de soin des troubles des conduites alimentaires. Psychologie, diététique, psychomotricité, en synergie.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://cabinet-lanotebleue-nantes.fr">
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* === Design system (déclinaison sœur — Variante B · Clinique) === */
-:root {
-  --blue-deep: #1e3a5f;
-  --blue-mid: #2c4a6e;
-  --blue-soft: #4a7ca8;
-  --blue-mist: #c5d8ec;
-  --blue-pale: #eaf2f8;
-  --cream: #faf8f5;
-  --warm-white: #f5f2ee;
-  --gold: #c4955a;
-  --gold-light: #e8c99a;
-  --gold-deep: #a87939;
-  --text-dark: #1a2e42;
-  --text-mid: #3d5a72;
-  --text-light: #7a9ab5;
-  --border: #dce8f0;
-
-  /* Tokens spécifiques Variante B — densité clinique, accents or soutenus */
-  --bg-primary: var(--warm-white);
-  --bg-structured: var(--blue-deep);
-  --accent: var(--gold);
-
-  /* Containers & rythme global */
-  --container: 1120px;
-  --container-wide: 1240px;
-  --container-narrow: 820px;
-  --gutter: clamp(1.2rem, 2vw, 2.5rem);
-  --section-y: clamp(4.5rem, 7vw, 6rem);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Mulish', sans-serif;
-  font-weight: 400;
-  color: var(--text-dark);
-  background: var(--bg-primary);
-  line-height: 1.65;
-}
-
-h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 500;
-}
-
-/* === Top strip — discret, signe de cabinet === */
-.top-strip {
-  background: var(--blue-deep);
-  color: var(--gold-light);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.55rem var(--gutter);
-  text-align: center;
-  font-weight: 500;
-}
-.top-strip .sep { opacity: 0.35; margin: 0 0.9rem; }
-
-/* === Navigation === */
-nav {
-  position: sticky;
-  top: 0;
-  background: white;
-  border-bottom: 1px solid var(--border);
-  height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 var(--gutter);
-  z-index: 500;
-  box-shadow: 0 1px 0 0 rgba(30, 58, 95, 0.03);
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  color: var(--blue-deep);
-}
-
-.nav-logo-emblem {
-  width: 44px;
-  height: 44px;
-  background: var(--blue-deep);
-  color: var(--gold-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  font-style: italic;
-  font-weight: 500;
-  border: 2px solid var(--gold);
-  border-radius: 6px;
-}
-
-.nav-logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-  font-family: 'Playfair Display', serif;
-}
-
-.nav-logo-text strong {
-  font-size: 1.08rem;
-  font-weight: 600;
-  color: var(--blue-deep);
-}
-
-.nav-logo-text small {
-  font-size: 0.68rem;
-  color: var(--gold-deep);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-family: 'Mulish', sans-serif;
-  font-weight: 700;
-  margin-top: 3px;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  text-decoration: none;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.5rem 0;
-  border-bottom: 2px solid transparent;
-  transition: all 0.25s;
-}
-
-.nav-links a:hover {
-  color: var(--gold-deep);
-  border-bottom-color: var(--gold);
-}
-
-.nav-cta {
-  background: var(--gold);
-  color: var(--blue-deep);
-  padding: 0.75rem 1.5rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s;
-  text-decoration: none;
-  border-radius: 6px;
-}
-
-.nav-cta:hover {
-  background: var(--gold-deep);
-  color: white;
-}
-
-/* === Hero === */
-.hero {
-  background: var(--blue-deep);
-  color: white;
-  padding: clamp(5rem, 8vw, 6.5rem) var(--gutter) clamp(5.5rem, 9vw, 7rem);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 85% 30%, rgba(196, 149, 90, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 10% 80%, rgba(74, 124, 168, 0.2) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -1px;
-  width: 120px;
-  height: 4px;
-  background: var(--gold);
-}
-
-.hero-inner {
-  width: min(100%, var(--container-wide));
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 2rem;
-  padding-bottom: 1.2rem;
-  border-bottom: 1px solid rgba(232, 201, 154, 0.3);
-  max-width: min(100%, 760px);
-}
-
-.hero h1 {
-  font-size: clamp(2.4rem, 4.8vw, 4.35rem);
-  line-height: 1.08;
-  color: white;
-  margin-bottom: 2rem;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-  max-width: min(100%, 1100px);
-  text-wrap: balance;
-}
-
-.hero h1 em {
-  font-style: italic;
-  color: var(--gold-light);
-  font-weight: 400;
-}
-
-.hero-lede {
-  font-size: clamp(1rem, 0.96rem + 0.3vw, 1.15rem);
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: min(100%, 900px);
-  margin-bottom: 3rem;
-  font-weight: 300;
-  text-wrap: pretty;
-}
-
-.hero-cta-group {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.btn-primary {
-  background: var(--gold);
-  color: var(--blue-deep);
-  padding: 1.05rem 2.2rem;
-  font-family: 'Mulish', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.25s;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  border: 2px solid var(--gold);
-  border-radius: 6px;
-}
-
-.btn-primary:hover {
-  background: transparent;
-  color: var(--gold-light);
-  box-shadow: 0 0 0 1px var(--gold-light);
-}
-
-.btn-secondary {
-  color: white;
-  font-family: 'Mulish', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.05rem 1.5rem;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.25s;
-  border-radius: 6px;
-}
-
-.btn-secondary:hover {
-  border-color: var(--gold-light);
-  color: var(--gold-light);
-}
-
-.btn-primary-light {
-  background: var(--blue-deep);
-  color: white;
-  border-color: var(--blue-deep);
-}
-
-.btn-primary-light:hover {
-  background: var(--blue-mid);
-  color: var(--gold-light);
-  border-color: var(--blue-mid);
-}
-
-.btn-secondary-dark {
-  color: var(--blue-deep);
-  border-color: rgba(30, 58, 95, 0.2);
-}
-
-.btn-secondary-dark:hover {
-  color: var(--gold-deep);
-  border-color: var(--gold);
-}
-
-/* === Sections === */
-section {
-  padding: var(--section-y) var(--gutter);
-}
-
-.inner {
-  width: min(100%, var(--container));
-  margin: 0 auto;
-}
-
-.inner-narrow {
-  width: min(100%, var(--container-narrow));
-  margin: 0 auto;
-}
-
-.section-head {
-  display: flex;
-  align-items: center;
-  gap: 1.3rem;
-  margin-bottom: 2.5rem;
-}
-
-.section-numero {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.6rem;
-  color: var(--gold);
-  font-weight: 400;
-  min-width: 44px;
-  line-height: 1;
-}
-
-.section-head-text {
-  flex: 1;
-}
-
-.section-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-  margin-bottom: 0.6rem;
-}
-
-h2 {
-  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-  color: var(--blue-deep);
-  line-height: 1.2;
-  font-weight: 600;
-}
-
-h2 em {
-  font-style: italic;
-  color: var(--gold-deep);
-  font-weight: 400;
-}
-
-.divider-gold {
-  width: 56px;
-  height: 3px;
-  background: var(--gold);
-  margin-bottom: 1.8rem;
-}
-
-/* === Section présentation === */
-.bg-cream { background: var(--cream); }
-.bg-warm-white { background: var(--warm-white); }
-.bg-white { background: white; }
-
-.presentation-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 4rem;
-}
-
-.presentation-text p {
-  font-size: 1rem;
-  color: var(--text-mid);
-  margin-bottom: 1.2rem;
-  line-height: 1.85;
-}
-
-.presentation-text strong {
-  color: var(--blue-deep);
-  font-weight: 600;
-}
-
-.presentation-aside {
-  background: var(--blue-deep);
-  color: white;
-  padding: 2.5rem;
-  border-top: 4px solid var(--gold);
-  font-size: 0.9rem;
-  line-height: 1.8;
-  border-radius: 8px;
-}
-
-.presentation-aside .label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 1rem;
-}
-
-.presentation-aside p {
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 1rem;
-}
-
-.presentation-aside a {
-  color: var(--gold-light);
-  text-decoration: none;
-  border-bottom: 1px solid var(--gold);
-  font-weight: 600;
-}
-
-.presentation-aside a:hover {
-  color: white;
-}
-
-/* === Section Qui === */
-.qui-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
-}
-
-.qui-card {
-  background: white;
-  padding: 2.5rem 2rem;
-  border-left: 3px solid var(--gold);
-  transition: all 0.3s;
-  border-radius: 10px;
-}
-
-.qui-card:hover {
-  border-left-width: 6px;
-  box-shadow: 0 6px 30px rgba(30, 58, 95, 0.1);
-}
-
-.qui-card h3 {
-  font-size: 1.2rem;
-  color: var(--blue-deep);
-  margin-bottom: 1rem;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.qui-card p {
-  font-size: 0.92rem;
-  color: var(--text-mid);
-  line-height: 1.75;
-}
-
-/* === Section Trois axes === */
-.axes-intro {
-  margin-bottom: 4rem;
-}
-
-.axes-intro > div:empty {
-  display: none;
-}
-
-.axes-lede {
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-  font-size: 1.05rem;
-  color: var(--text-mid);
-  line-height: 1.8;
-}
-
-.axes-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
-}
-
-.axe-card {
-  background: white;
-  padding: 3rem 2.2rem;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  position: relative;
-  transition: all 0.3s;
-  overflow: hidden;
-}
-
-.axe-card:hover {
-  background: var(--cream);
-  box-shadow: 0 6px 28px rgba(30, 58, 95, 0.08);
-}
-
-.axe-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s;
-}
-
-.axe-card:hover::before {
-  transform: scaleX(1);
-}
-
-.axe-numero {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 2.2rem;
-  color: var(--gold);
-  font-weight: 400;
-  line-height: 1;
-  margin-bottom: 1rem;
-}
-
-.axe-card h3 {
-  font-size: 1.2rem;
-  color: var(--blue-deep);
-  margin-bottom: 1rem;
-  font-weight: 600;
-  line-height: 1.3;
-  min-height: 3rem;
-}
-
-.axe-card p {
-  font-size: 0.92rem;
-  color: var(--text-mid);
-  line-height: 1.75;
-  margin-bottom: 1.5rem;
-}
-
-.axe-card .praticiens {
-  font-size: 0.78rem;
-  color: var(--gold-deep);
-  padding-top: 1.2rem;
-  border-top: 1px dashed var(--border);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-
-.axes-mention {
-  margin-top: 2.5rem;
-  padding: 1.5rem 2rem;
-  background: var(--cream);
-  border-left: 3px solid var(--gold);
-  font-size: 0.88rem;
-  font-style: italic;
-  color: var(--text-mid);
-  line-height: 1.75;
-  border-radius: 6px;
-}
-
-.axes-cta {
-  margin-top: 3rem;
-}
-
-/* === Section mental restrictif === */
-.mr-section {
-  background: var(--blue-deep);
-  color: white;
-  padding: clamp(5.5rem, 9vw, 7rem) var(--gutter);
-  position: relative;
-  overflow: hidden;
-}
-
-.mr-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
-}
-
-.mr-section .section-label {
-  color: var(--gold-light);
-}
-
-.mr-section h2 {
-  color: white;
-  font-size: clamp(2rem, 4vw, 3rem);
-}
-
-.mr-section h2 em {
-  color: var(--gold-light);
-}
-
-.mr-section p {
-  font-size: 1.02rem;
-  line-height: 1.85;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 1.3rem;
-}
-
-.mr-section strong {
-  color: var(--gold-light);
-  font-weight: 600;
-}
-
-.mr-lede {
-  font-size: 1.15rem !important;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.92) !important;
-  margin-bottom: 2rem !important;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(232, 201, 154, 0.2);
-}
-
-/* === Section livre === */
-.livre-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.6fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.livre-visuel {
-  position: relative;
-}
-
-.livre-visuel::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  right: -20px;
-  width: 100%;
-  height: 100%;
-  background: var(--gold);
-  opacity: 0.15;
-  z-index: 0;
-}
-
-.livre-visuel img {
-  position: relative;
-  z-index: 1;
-  max-width: 100%;
-  box-shadow: 0 20px 50px rgba(30, 58, 95, 0.22);
-  border-radius: 4px;
-}
-
-.livre-content h2 {
-  margin-bottom: 1rem;
-}
-
-.livre-content .author {
-  font-style: italic;
-  color: var(--gold-deep);
-  margin-bottom: 1.5rem;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-}
-
-.livre-content p {
-  font-size: 1rem;
-  color: var(--text-mid);
-  line-height: 1.85;
-  margin-bottom: 2rem;
-}
-
-.livre-content .btn-group {
-  display: flex;
-  gap: 1.2rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-/* === Section rendez-vous === */
-.rdv-section {
-  background: white;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.rdv-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.rdv-left h2 {
-  margin-bottom: 1.5rem;
-}
-
-.rdv-left p {
-  font-size: 1.02rem;
-  color: var(--text-mid);
-  line-height: 1.8;
-  margin-bottom: 2rem;
-}
-
-.rdv-cta-group {
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-}
-
-.rdv-right {
-  background: var(--cream);
-  padding: 3rem;
-  border-top: 4px solid var(--gold);
-  border-radius: 10px;
-}
-
-.rdv-right .label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-  margin-bottom: 1rem;
-}
-
-.rdv-right h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  color: var(--blue-deep);
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-}
-
-.rdv-right address {
-  font-style: normal;
-  font-size: 0.95rem;
-  color: var(--text-mid);
-  line-height: 1.8;
-}
-
-.rdv-right address strong {
-  color: var(--blue-deep);
-  font-weight: 600;
-}
-
-/* === Footer === */
-footer {
-  background: var(--blue-deep);
-  color: white;
-  padding: clamp(4rem, 6vw, 5rem) var(--gutter) 2rem;
-  position: relative;
-}
-
-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: var(--gold);
-}
-
-.footer-content {
-  width: min(100%, var(--container));
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 3rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.footer-section h3 {
-  font-family: 'Mulish', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--gold-light);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-bottom: 1.3rem;
-  padding-bottom: 0.7rem;
-  border-bottom: 1px solid rgba(232, 201, 154, 0.25);
-}
-
-.footer-section p,
-.footer-section li {
-  font-size: 0.86rem;
-  line-height: 1.9;
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.footer-section ul {
-  list-style: none;
-}
-
-.footer-section a {
-  color: rgba(255, 255, 255, 0.82);
-  text-decoration: none;
-  transition: color 0.25s;
-}
-
-.footer-section a:hover {
-  color: var(--gold-light);
-}
-
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 1.2rem;
-}
-
-.footer-brand-emblem {
-  width: 44px;
-  height: 44px;
-  background: transparent;
-  color: var(--gold-light);
-  border: 2px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.3rem;
-  border-radius: 6px;
-}
-
-.footer-brand-text {
-  font-family: 'Playfair Display', serif;
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.footer-brand-text strong {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.footer-brand-text small {
-  font-size: 0.68rem;
-  color: var(--gold-light);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-family: 'Mulish', sans-serif;
-  font-weight: 700;
-  margin-top: 4px;
-}
-
-.footer-bottom {
-  width: min(100%, var(--container));
-  margin: 2rem auto 0;
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.74rem;
-  color: rgba(255, 255, 255, 0.55);
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.footer-bottom a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-}
-
-.footer-bottom a:hover {
-  color: var(--gold-light);
-}
-
-/* === Scroll reveal === */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.9s cubic-bezier(0.2, 0.9, 0.3, 1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* === Responsive === */
-@media (max-width: 1366px) {
-  .hero-inner {
-    width: min(100%, 1180px);
-  }
-
-  .hero h1 {
-    max-width: 1000px;
-  }
-
-  .hero-lede {
-    max-width: 840px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .presentation-grid,
-  .livre-grid,
-  .rdv-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .qui-grid,
-  .axes-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.2rem, 6vw, 3.6rem);
-    line-height: 1.1;
-  }
-}
-
-@media (max-width: 768px) {
-  .top-strip {
-    font-size: 0.65rem;
-    padding: 0.45rem 1rem;
-  }
-
-  .top-strip .sep {
-    display: none;
-  }
-
-  nav {
-    padding: 0 1.2rem;
-    height: 72px;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .hero {
-    padding: 4rem 1.2rem 5rem;
-  }
-
-  .hero-label {
-    letter-spacing: 0.18em;
-    font-size: 0.68rem;
-  }
-
-  section {
-    padding: 4.5rem 1.2rem;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .section-head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-  }
-
-  .rdv-right,
-  .presentation-aside,
-  .axe-card {
-    padding: 2rem 1.5rem;
-  }
-}
-
-  </style>
-</head>
-
-<body>
-
-<div class="top-strip">
-  Cabinet pluridisciplinaire <span class="sep">·</span> 6 et 7 rue des Rochettes, Nantes <span class="sep">·</span> Trajectoire de soin des troubles alimentaires
-</div>
-
-<nav>
-  <div class="nav-logo">
-    <div class="nav-logo-emblem">♪</div>
-    <div class="nav-logo-text">
-      <strong>La Note Bleue</strong>
-      <small>Cabinet · Nantes</small>
-    </div>
-  </div>
-  <ul class="nav-links">
-    <li><a href="/parcours">Parcours de soin</a></li>
-    <li><a href="/mental-restrictif">Mental restrictif</a></li>
-    <li><a href="/equipe">Équipe</a></li>
-    <li><a href="/ressources">Ressources</a></li>
-    <li><a href="/contact">Contact</a></li>
-  </ul>
-  <a href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988" class="nav-cta" target="_blank" rel="noopener">Rendez-vous</a>
-</nav>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-inner reveal">
-    <div class="hero-label">Cabinet pluridisciplinaire · Nantes · 30 ans d'expérience clinique</div>
-    <h1>Une trajectoire de soin <em>structurée</em> pour les troubles des conduites alimentaires.</h1>
-    <p class="hero-lede">Une approche clinique intégrative qui articule, en synergie, le travail psychique, corporel et diététique. Pour comprendre et traverser l'anorexie, la boulimie, l'hyperphagie, et plus largement le mental restrictif.</p>
-    <div class="hero-cta-group">
-      <a href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988" class="btn-primary" target="_blank" rel="noopener">Prendre rendez-vous</a>
-      <a href="/parcours" class="btn-secondary">Notre approche</a>
-    </div>
-  </div>
-</section>
-
-<!-- Section 1 · Présentation -->
-<section class="bg-warm-white">
-  <div class="inner reveal">
-    <div class="section-head">
-      <div class="section-head-text">
-        <div class="section-label">Le cabinet en quelques mots</div>
-        <h2>Soigner les troubles des conduites alimentaires <em>autrement</em></h2>
+---
+import Layout from '../layouts/Layout.astro';
+
+const axes = [
+  {
+    numero: '01',
+    titre: 'Psychologie clinique · psychothérapie',
+    description:
+      "Travail sur le mental restrictif, la dualité intérieure, la restauration progressive d'une sécurité intérieure et d'une présence à soi unifiée.",
+    praticiens: 'Aude Réhault · Charles-Antoine Menanteau · Nathalie Saget',
+  },
+  {
+    numero: '02',
+    titre: 'Diététique · nutrition',
+    description:
+      "Accompagnement alimentaire intégratif, restauration de l'intéroception, travail sur les croyances alimentaires, sortie progressive du contrôle.",
+    praticiens: 'Julie Basset · Marine Boni · Emilie Grasset',
+  },
+  {
+    numero: '03',
+    titre: 'Psychomotricité',
+    description:
+      "Travail sur l'enveloppe corporelle, les limites, l'ancrage, la modulation tonique, la restauration d'une sécurité corporelle vécue.",
+    praticiens: 'Blanche Augarde-Dollé · Séverine Gauvin',
+  },
+];
+
+const reperes = [
+  'Cabinet pluridisciplinaire à Nantes',
+  "Approche intégrative construite sur 30 ans d'expérience clinique",
+  'Prise de rendez-vous directe sur Doctolib',
+];
+
+const publics = [
+  {
+    titre: 'Adolescents et adultes',
+    texte:
+      "À toute étape de la trajectoire : premiers symptômes, parcours déjà long, sortie d'hospitalisation, rechutes.",
+  },
+  {
+    titre: 'Tous les TCA, y compris les formes peu visibles',
+    texte:
+      "Anorexie restrictive, boulimie avec ou sans vomissements, hyperphagie, TCA atypiques, obsessions alimentaires sans perte de poids.",
+  },
+  {
+    titre: "L'entourage",
+    texte:
+      "Les proches peuvent consulter pour comprendre, se repérer, et trouver leur juste place dans l'accompagnement.",
+  },
+];
+---
+
+<Layout
+  title="Cabinet La Note Bleue · Nantes | Trajectoire de soin des troubles alimentaires"
+  description="Cabinet pluridisciplinaire nantais spécialisé dans la trajectoire de soin des troubles des conduites alimentaires. Psychologie, diététique, psychomotricité, en synergie."
+  canonicalPath="/"
+>
+  <section class="home-hero">
+    <div class="home-hero-shell reveal">
+      <div class="home-hero-copy">
+        <div class="hero-kicker">Cabinet pluridisciplinaire · Nantes · Troubles des conduites alimentaires</div>
+        <h1>Une trajectoire de soin <em>plus incarnée</em>, pensée pour durer.</h1>
+        <p class="hero-intro">
+          Le Cabinet La Note Bleue réunit psychologues, diététiciennes et psychomotriciennes
+          autour d'une même conviction clinique : on ne soigne pas durablement un TCA en
+          s'occupant seulement des symptômes visibles.
+        </p>
+        <div class="hero-actions">
+          <a
+            href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988"
+            class="btn-primary"
+            target="_blank"
+            rel="noopener"
+          >
+            Prendre rendez-vous
+          </a>
+          <a href="/parcours" class="btn-secondary">Découvrir l'approche</a>
+        </div>
       </div>
-    </div>
-    <div class="divider-gold"></div>
-    <div class="presentation-grid">
-      <div class="presentation-text">
-        <p>Le Cabinet La Note Bleue Nantes réunit des psychologues, des diététiciennes et des psychomotriciennes autour d'une même conviction clinique : traiter un trouble des conduites alimentaires suppose d'aller <strong>au-delà des symptômes visibles</strong>.</p>
-        <p>Derrière l'anorexie, la boulimie ou l'hyperphagie, il existe une structure psycho-corporelle commune, transdiagnostique, que nous appelons le <strong>mental restrictif</strong>. C'est en travaillant cette structure, en même temps que le rapport au corps et à l'alimentation, que s'ouvre une trajectoire de soin durable.</p>
-        <p>Notre approche, articulée en synergie entre les trois axes (corps, psychisme, diététique), est le fruit de <strong>30 ans d'expérience clinique</strong> auprès de personnes souffrant de TCA.</p>
-      </div>
-      <aside class="presentation-aside">
-        <div class="label">Distinction utile</div>
-        <p>Le cabinet est distinct de l'association La Note Bleue, qui a pour mission l'information, l'orientation et le soutien des personnes concernées et de leur entourage.</p>
-        <p><a href="https://association-lanotebleue.fr" target="_blank" rel="noopener">Découvrir l'association →</a></p>
+
+      <aside class="hero-panel">
+        <div class="hero-panel-label">Repères</div>
+        <ul class="hero-panel-list">
+          {reperes.map((repere) => <li>{repere}</li>)}
+        </ul>
+        <div class="hero-panel-note">
+          Le cabinet est distinct de l'association La Note Bleue, dédiée à l'information,
+          l'orientation et au soutien des personnes concernées et de leur entourage.
+        </div>
+        <a href="https://association-lanotebleue.fr" target="_blank" rel="noopener" class="hero-panel-link">
+          Découvrir l'association
+        </a>
       </aside>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Section 2 · Qui -->
-<section class="bg-cream">
-  <div class="inner reveal">
-    <div class="section-head">
-      <div class="section-head-text">
-        <div class="section-label">Qui peut consulter</div>
-        <h2>Le cabinet accompagne</h2>
+  <section class="home-intent bg-white">
+    <div class="inner reveal">
+      <div class="section-head home-head">
+        <div class="section-head-text">
+          <div class="section-label">Le cabinet en quelques mots</div>
+          <h2>Soigner les troubles des conduites alimentaires <em>autrement</em></h2>
+        </div>
+      </div>
+      <div class="divider-gold"></div>
+      <div class="intent-grid">
+        <div class="intent-prose">
+          <p>
+            Derrière l'anorexie, la boulimie ou l'hyperphagie, il existe souvent une structure
+            psycho-corporelle commune, transdiagnostique, que nous appelons le
+            <strong> mental restrictif</strong>.
+          </p>
+          <p>
+            C'est en travaillant cette structure, en même temps que le rapport au corps et à
+            l'alimentation, que s'ouvre une trajectoire de soin durable.
+          </p>
+        </div>
+        <div class="intent-card">
+          <div class="intent-card-value">3</div>
+          <p>axes en synergie : psychique, corporel et diététique.</p>
+        </div>
       </div>
     </div>
-    <div class="divider-gold"></div>
-    <div class="qui-grid">
-      <div class="qui-card">
-        <h3>Adolescents et adultes</h3>
-        <p>À toute étape de la trajectoire : premiers symptômes, parcours déjà long, sortie d'hospitalisation, rechutes.</p>
+  </section>
+
+  <section class="bg-cream">
+    <div class="inner reveal">
+      <div class="section-head">
+        <div class="section-head-text">
+          <div class="section-label">Qui peut consulter</div>
+          <h2>Le cabinet accompagne</h2>
+        </div>
       </div>
-      <div class="qui-card">
-        <h3>Tous les TCA, y compris les formes peu visibles</h3>
-        <p>Anorexie restrictive, boulimie avec ou sans vomissements, hyperphagie, TCA atypiques, obsessions alimentaires sans perte de poids. Le mental restrictif n'est pas toujours associé à un IMC bas.</p>
-      </div>
-      <div class="qui-card">
-        <h3>L'entourage</h3>
-        <p>Les proches peuvent consulter pour comprendre, se repérer, et trouver leur juste place dans l'accompagnement.</p>
+      <div class="divider-gold"></div>
+      <div class="public-grid">
+        {publics.map((publicItem) => (
+          <article class="public-card">
+            <h3>{publicItem.titre}</h3>
+            <p>{publicItem.texte}</p>
+          </article>
+        ))}
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Section 3 · Trois axes -->
-<section class="bg-warm-white" id="equipe">
-  <div class="inner reveal">
-    <div class="section-head">
-      <div class="section-head-text">
+  <section class="axes-showcase">
+    <div class="inner reveal">
+      <div class="axes-heading">
         <div class="section-label">Les trois axes du cabinet</div>
         <h2>Trois spécialités, <em>une même trajectoire de soin</em></h2>
+        <p class="axes-lead">
+          Il ne s'agit pas de trois suivis en parallèle, mais d'un accompagnement articulé,
+          où chaque axe éclaire et soutient les deux autres.
+        </p>
+      </div>
+
+      <div class="axes-stack">
+        {axes.map((axe) => (
+          <article class="axis-row">
+            <div class="axis-number">{axe.numero}</div>
+            <div class="axis-content">
+              <h3>{axe.titre}</h3>
+              <p>{axe.description}</p>
+            </div>
+            <div class="axis-praticiens">{axe.praticiens}</div>
+          </article>
+        ))}
+      </div>
+
+      <div class="axes-footer-note">
+        Les apports décrits pour chaque spécialité sont indicatifs. La trajectoire de soin se
+        construit avec chaque personne accompagnée ; elle n'est ni protocolisée ni généralisable.
+      </div>
+
+      <div class="axes-actions">
+        <a href="/equipe" class="btn-primary btn-primary-light">Voir l'équipe en détail</a>
       </div>
     </div>
-    <div class="divider-gold"></div>
-    <div class="axes-intro">
-      <p class="axes-lede">Psychologie, diététique, psychomotricité. Il ne s'agit pas de trois suivis en parallèle, mais d'un accompagnement articulé, où chaque axe éclaire et soutient les deux autres.</p>
-    </div>
+  </section>
 
-    <div class="axes-grid">
-      <div class="axe-card">
-        <div class="axe-numero">01</div>
-        <h3>Psychologie clinique · psychothérapie</h3>
-        <p>Travail sur le mental restrictif, la dualité intérieure, la restauration progressive d'une sécurité intérieure et d'une présence à soi unifiée.</p>
-        <div class="praticiens">Aude Réhault · Charles-Antoine Menanteau</div>
-      </div>
-      <div class="axe-card">
-        <div class="axe-numero">02</div>
-        <h3>Diététique · nutrition</h3>
-        <p>Accompagnement alimentaire intégratif, restauration de l'intéroception, travail sur les croyances alimentaires, sortie progressive du contrôle.</p>
-        <div class="praticiens">Julie Basset · Marine Boni · Emilie Grasset</div>
-      </div>
-      <div class="axe-card">
-        <div class="axe-numero">03</div>
-        <h3>Psychomotricité</h3>
-        <p>Travail sur l'enveloppe corporelle, les limites, l'ancrage, la modulation tonique, la restauration d'une sécurité corporelle vécue.</p>
-        <div class="praticiens">Blanche Augarde-Dollé · Séverine Gauvin</div>
+  <section class="mr-section" id="mental-restrictif">
+    <div class="inner-narrow reveal">
+      <div class="section-label">La notion qui organise notre approche</div>
+      <h2>Le <em>mental restrictif</em></h2>
+      <div class="divider-gold" style="background: var(--gold-light); margin-top: 1.5rem;"></div>
+      <p class="mr-lede">
+        Une organisation psychique transdiagnostique qui se retrouve derrière l'anorexie, la
+        boulimie et l'hyperphagie.
+      </p>
+      <p>
+        C'est une modalité d'être faite de contrôle, de rigidité et d'hyperadaptation, qui se
+        met en place quand la sécurité intérieure est fragilisée.
+      </p>
+      <p>
+        Comprendre le mental restrictif, c'est souvent le premier pas d'un soin qui ne se
+        contente plus d'agir sur les symptômes.
+      </p>
+      <div class="mr-actions">
+        <a href="/mental-restrictif" class="btn-primary">Comprendre le mental restrictif</a>
       </div>
     </div>
+  </section>
 
-    <div class="axes-mention">Les apports décrits pour chaque spécialité sont indicatifs. La trajectoire de soin se construit avec chaque personne accompagnée ; elle n'est ni protocolisée ni généralisable.</div>
-
-    <div class="axes-cta">
-      <a href="/equipe" class="btn-primary btn-primary-light">Voir l'équipe en détail</a>
-    </div>
-  </div>
-</section>
-
-<!-- Section 4 · Mental restrictif -->
-<section class="mr-section" id="mental-restrictif">
-  <div class="inner-narrow reveal">
-    <div class="section-label">La notion qui organise notre approche</div>
-    <h2>Le <em>mental restrictif</em></h2>
-    <div class="divider-gold" style="background: var(--gold-light); margin-top: 1.5rem;"></div>
-    <p class="mr-lede">Une organisation psychique transdiagnostique qui se retrouve derrière l'anorexie, la boulimie, l'hyperphagie.</p>
-    <p>C'est une modalité d'être faite de contrôle, de rigidité, d'hyperadaptation, qui se met en place quand la sécurité intérieure est fragilisée.</p>
-    <p>Cette notion s'inscrit dans une filiation clinique précise : le <strong>mental anorexique</strong>, créé par Alain Meunier et approfondi dans son travail avec Aude Réhault. Le <strong>mental restrictif</strong>, notion transdiagnostique, en est le prolongement exclusivement développé par Aude Réhault. Trente ans d'expérience clinique soutiennent ces élaborations.</p>
-    <p>Comprendre le mental restrictif, c'est souvent le premier pas d'un soin qui ne se contente plus d'agir sur les symptômes.</p>
-    <div style="margin-top: 2.5rem;">
-      <a href="/mental-restrictif" class="btn-primary">Comprendre le mental restrictif</a>
-    </div>
-  </div>
-</section>
-
-<!-- Section 5 · Livre -->
-<section class="bg-cream" id="ressources">
-  <div class="inner reveal">
-    <div class="livre-grid">
-      <div class="livre-visuel">
-        <img src="/images/rehault-sortir-anorexie.jpg" alt="Couverture du livre Sortir de l'anorexie et de la boulimie d'Aude Réhault">
-      </div>
-      <div class="livre-content">
-        <div class="section-label">Pour approfondir</div>
-        <h2>Sortir de l'anorexie <em>et de la boulimie</em></h2>
-        <div class="author">Aude Réhault · Éditions Dunod</div>
-        <div class="divider-gold"></div>
-        <p>Un ouvrage qui synthétise l'approche clinique : comment construire une trajectoire de soin qui tienne compte de la structure psycho-corporelle du TCA, au-delà du seul travail sur les symptômes.</p>
-        <div class="btn-group">
-          <a href="https://www.dunod.com/sciences-humaines-et-sociales/sortir-anorexie-et-boulimie-construire-sa-trajectoire-soin" class="btn-primary btn-primary-light" target="_blank" rel="noopener">Voir sur le site de l'éditeur</a>
-          <a href="/ressources" class="btn-secondary btn-secondary-dark">Toutes les ressources</a>
+  <section class="bg-cream" id="ressources">
+    <div class="inner reveal">
+      <div class="livre-grid">
+        <div class="livre-visuel">
+          <img
+            src="/images/rehault-sortir-anorexie.jpg"
+            alt="Couverture du livre Sortir de l'anorexie et de la boulimie d'Aude Réhault"
+          />
+        </div>
+        <div class="livre-content">
+          <div class="section-label">Pour approfondir</div>
+          <h2>Sortir de l'anorexie <em>et de la boulimie</em></h2>
+          <div class="author">Aude Réhault · Éditions Dunod</div>
+          <div class="divider-gold"></div>
+          <p>
+            Un ouvrage qui synthétise l'approche clinique : comment construire une trajectoire
+            de soin qui tienne compte de la structure psycho-corporelle du TCA, au-delà du seul
+            travail sur les symptômes.
+          </p>
+          <div class="btn-group">
+            <a
+              href="https://www.dunod.com/sciences-humaines-et-sociales/sortir-anorexie-et-boulimie-construire-sa-trajectoire-soin"
+              class="btn-primary btn-primary-light"
+              target="_blank"
+              rel="noopener"
+            >
+              Voir sur le site de l'éditeur
+            </a>
+            <a href="/ressources" class="btn-secondary btn-secondary-dark">Toutes les ressources</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Section 6 · Rendez-vous -->
-<section class="rdv-section" id="contact">
-  <div class="inner reveal">
-    <div class="rdv-grid">
-      <div class="rdv-left">
-        <div class="section-label">Prendre rendez-vous</div>
-        <h2>Un premier rendez-vous <em>au cabinet</em></h2>
-        <div class="divider-gold"></div>
-        <p>Les rendez-vous se prennent directement en ligne sur Doctolib. Vous pouvez contacter le cabinet pour un premier contact, ou cibler directement un praticien si vous savez qui vous souhaitez consulter.</p>
-        <div class="rdv-cta-group">
-          <a href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988" class="btn-primary btn-primary-light" target="_blank" rel="noopener">Prendre rendez-vous</a>
-          <a href="/equipe" class="btn-secondary btn-secondary-dark">Choisir un praticien</a>
+  <section class="rdv-section" id="contact">
+    <div class="inner reveal">
+      <div class="rdv-grid home-rdv-grid">
+        <div class="rdv-left">
+          <div class="section-label">Prendre rendez-vous</div>
+          <h2>Un premier rendez-vous <em>au cabinet</em></h2>
+          <div class="divider-gold"></div>
+          <p>
+            Les rendez-vous se prennent directement en ligne sur Doctolib. Vous pouvez cibler
+            un praticien si vous savez qui vous souhaitez consulter, ou commencer par une
+            première prise de contact.
+          </p>
+          <div class="rdv-cta-group">
+            <a
+              href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988"
+              class="btn-primary btn-primary-light"
+              target="_blank"
+              rel="noopener"
+            >
+              Prendre rendez-vous
+            </a>
+            <a href="/equipe" class="btn-secondary btn-secondary-dark">Choisir un praticien</a>
+          </div>
         </div>
+        <aside class="rdv-right location-card">
+          <div class="label">Nous trouver</div>
+          <h3>Cabinet La Note Bleue</h3>
+          <address>
+            <strong>Nantes</strong><br />
+            6 et 7 rue des Rochettes<br />
+            44000 Nantes
+          </address>
+          <p class="location-note">
+            Un lieu unique pour permettre la circulation discrète de l'information clinique entre
+            praticiens.
+          </p>
+        </aside>
       </div>
-      <div class="rdv-right">
-        <div class="label">Nous trouver</div>
-        <h3>Cabinet La Note Bleue</h3>
-        <address>
-          <strong>Nantes</strong><br>
-          6 et 7 rue des Rochettes<br>
-          44000 Nantes
-        </address>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
+</Layout>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-section">
-      <div class="footer-brand">
-        <div class="footer-brand-emblem">♪</div>
-        <div class="footer-brand-text">
-          <strong>La Note Bleue</strong>
-          <small>Cabinet · Nantes</small>
-        </div>
-      </div>
-      <p>Cabinet pluridisciplinaire spécialisé dans la trajectoire de soin des troubles des conduites alimentaires.</p>
-      <p style="margin-top: 1rem;">6 et 7 rue des Rochettes<br>44000 Nantes</p>
-    </div>
-    <div class="footer-section">
-      <h3>Navigation</h3>
-      <ul>
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/parcours">Parcours de soin</a></li>
-        <li><a href="/mental-restrictif">Le mental restrictif</a></li>
-        <li><a href="/equipe">L'équipe et les soins</a></li>
-        <li><a href="/ressources">Ressources</a></li>
-        <li><a href="/contact">Prendre rendez-vous</a></li>
-      </ul>
-    </div>
-    <div class="footer-section">
-      <h3>En savoir plus</h3>
-      <ul>
-        <li><a href="https://association-lanotebleue.fr" target="_blank" rel="noopener">Association La Note Bleue</a></li>
-        <li><a href="#" target="_blank" rel="noopener">Livre d'Aude Réhault (Dunod)</a></li>
-        <li><a href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988" target="_blank" rel="noopener">Doctolib</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div>© 2026 Cabinet La Note Bleue · Nantes</div>
-    <div><a href="#mentions-legales">Mentions légales et vie privée</a></div>
-  </div>
-</footer>
+<style>
+  .home-hero {
+    padding-top: clamp(3rem, 4vw, 4.5rem);
+    padding-bottom: clamp(4.5rem, 8vw, 7rem);
+    background:
+      radial-gradient(circle at top left, rgba(232, 201, 154, 0.18), transparent 28%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(245, 242, 238, 0.8));
+  }
 
-<script>
-  const revealElements = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.12 });
-  revealElements.forEach(el => observer.observe(el));
-</script>
+  .home-hero-shell {
+    width: min(100%, var(--container-wide));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.78fr);
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: stretch;
+  }
 
-</body>
-</html>
+  .home-hero-copy {
+    position: relative;
+    background: linear-gradient(155deg, var(--blue-deep), #27476c 52%, #2d5477 100%);
+    color: white;
+    padding: clamp(2rem, 4vw, 4rem);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(24, 45, 69, 0.2);
+  }
+
+  .home-hero-copy::before {
+    content: '';
+    position: absolute;
+    inset: auto -10% -18% auto;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    border: 1px solid rgba(232, 201, 154, 0.22);
+    box-shadow:
+      0 0 0 36px rgba(232, 201, 154, 0.06),
+      0 0 0 72px rgba(232, 201, 154, 0.04);
+    pointer-events: none;
+  }
+
+  .home-hero-copy::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(125deg, transparent 0%, transparent 58%, rgba(255, 255, 255, 0.06) 100%),
+      radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.08), transparent 22%);
+    pointer-events: none;
+  }
+
+  .hero-kicker {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.65rem 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(232, 201, 154, 0.25);
+    border-radius: 999px;
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+  }
+
+  .home-hero h1 {
+    position: relative;
+    z-index: 1;
+    max-width: 12ch;
+    font-size: clamp(2.8rem, 6vw, 5.35rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-wrap: balance;
+  }
+
+  .home-hero h1 em {
+    color: var(--gold-light);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero-intro {
+    position: relative;
+    z-index: 1;
+    max-width: 62ch;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: clamp(1rem, 0.95rem + 0.35vw, 1.18rem);
+    line-height: 1.85;
+    margin-bottom: 2.2rem;
+  }
+
+  .hero-actions {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero-panel {
+    position: relative;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(30, 58, 95, 0.08);
+    border-radius: 24px;
+    padding: clamp(1.5rem, 2vw, 2rem);
+    box-shadow: 0 18px 60px rgba(30, 58, 95, 0.08);
+    align-self: end;
+  }
+
+  .hero-panel::before {
+    content: '';
+    position: absolute;
+    inset: 1rem;
+    border: 1px solid rgba(196, 149, 90, 0.18);
+    border-radius: 18px;
+    pointer-events: none;
+  }
+
+  .hero-panel-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 1.1rem;
+  }
+
+  .hero-panel-list {
+    list-style: none;
+    display: grid;
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-panel-list li {
+    position: relative;
+    padding-left: 1.3rem;
+    color: var(--text-dark);
+    line-height: 1.65;
+  }
+
+  .hero-panel-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .hero-panel-note {
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(30, 58, 95, 0.1);
+  }
+
+  .hero-panel-link {
+    color: var(--blue-deep);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-panel-link:hover {
+    color: var(--gold-deep);
+  }
+
+  .home-intent {
+    position: relative;
+  }
+
+  .home-intent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100% - 2.4rem, 1180px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(30, 58, 95, 0.1), transparent);
+  }
+
+  .home-head {
+    margin-bottom: 1.7rem;
+  }
+
+  .intent-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(220px, 0.72fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .intent-prose p {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+
+  .intent-prose strong {
+    color: var(--blue-deep);
+  }
+
+  .intent-card {
+    padding: 1.8rem;
+    border-radius: 24px;
+    background: linear-gradient(180deg, var(--cream), rgba(234, 242, 248, 0.75));
+    border: 1px solid rgba(30, 58, 95, 0.08);
+    text-align: left;
+  }
+
+  .intent-card-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    line-height: 1;
+    color: var(--gold-deep);
+    margin-bottom: 0.7rem;
+  }
+
+  .intent-card p {
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+
+  .public-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.35rem;
+  }
+
+  .public-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(30, 58, 95, 0.08);
+    border-radius: 20px;
+    padding: 2rem 1.7rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .public-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), rgba(196, 149, 90, 0.2));
+  }
+
+  .public-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 34px rgba(30, 58, 95, 0.08);
+  }
+
+  .public-card h3 {
+    font-size: 1.25rem;
+    color: var(--blue-deep);
+    margin-bottom: 0.9rem;
+    line-height: 1.3;
+  }
+
+  .public-card p {
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+
+  .axes-showcase {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(245, 242, 238, 0.6)),
+      radial-gradient(circle at 100% 0%, rgba(197, 216, 236, 0.3), transparent 30%);
+  }
+
+  .axes-heading {
+    max-width: 760px;
+    margin-bottom: 3rem;
+  }
+
+  .axes-lead {
+    margin-top: 1.2rem;
+    color: var(--text-mid);
+    font-size: 1.05rem;
+    line-height: 1.85;
+  }
+
+  .axes-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .axis-row {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1.3fr) minmax(220px, 0.8fr);
+    gap: 1.3rem;
+    align-items: start;
+    padding: 1.6rem;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(30, 58, 95, 0.08);
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(30, 58, 95, 0.04);
+  }
+
+  .axis-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.3rem;
+    line-height: 1;
+    color: var(--gold);
+    font-style: italic;
+    padding-top: 0.2rem;
+  }
+
+  .axis-content h3 {
+    font-size: 1.3rem;
+    color: var(--blue-deep);
+    margin-bottom: 0.7rem;
+    line-height: 1.3;
+  }
+
+  .axis-content p {
+    color: var(--text-mid);
+    line-height: 1.85;
+  }
+
+  .axis-praticiens {
+    color: var(--gold-deep);
+    font-size: 0.84rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.7;
+    font-weight: 700;
+    padding-top: 0.25rem;
+  }
+
+  .axes-footer-note {
+    margin-top: 1.6rem;
+    padding: 1.3rem 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 16px 16px 0;
+    color: var(--text-mid);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    font-style: italic;
+  }
+
+  .axes-actions {
+    margin-top: 2rem;
+  }
+
+  .mr-actions {
+    margin-top: 2.2rem;
+  }
+
+  .home-rdv-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  }
+
+  .location-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .location-card::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    bottom: -70px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196, 149, 90, 0.16), transparent 68%);
+    pointer-events: none;
+  }
+
+  .location-note {
+    margin-top: 1.3rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    max-width: 36ch;
+  }
+
+  @media (max-width: 1024px) {
+    .home-hero-shell,
+    .intent-grid,
+    .public-grid,
+    .home-rdv-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .axis-row {
+      grid-template-columns: 70px 1fr;
+    }
+
+    .axis-praticiens {
+      grid-column: 2;
+      padding-top: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .home-hero {
+      padding-top: 1.5rem;
+    }
+
+    .home-hero-copy,
+    .hero-panel,
+    .public-card,
+    .axis-row {
+      border-radius: 18px;
+    }
+
+    .home-hero h1 {
+      max-width: none;
+    }
+
+    .hero-kicker {
+      border-radius: 18px;
+      line-height: 1.5;
+    }
+
+    .axis-row {
+      grid-template-columns: 1fr;
+    }
+
+    .axis-number,
+    .axis-praticiens {
+      grid-column: auto;
+    }
+  }
+</style>

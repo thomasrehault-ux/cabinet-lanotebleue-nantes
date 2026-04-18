@@ -12,6 +12,7 @@ const {
 } = Astro.props;
 
 const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
+const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
@@ -48,6 +49,9 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
       --bg-primary: var(--warm-white);
       --bg-structured: var(--blue-deep);
       --accent: var(--gold);
+      --shadow-soft: 0 14px 40px rgba(30, 58, 95, 0.08);
+      --radius-lg: 24px;
+      --radius-md: 16px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -59,6 +63,8 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
       color: var(--text-dark);
       background: var(--bg-primary);
       line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; }
@@ -80,15 +86,17 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
     nav {
       position: sticky;
       top: 0;
-      background: white;
-      border-bottom: 1px solid var(--border);
-      height: 82px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(220, 232, 240, 0.9);
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 2.5rem;
       z-index: 500;
-      box-shadow: 0 1px 0 0 rgba(30, 58, 95, 0.03);
+      box-shadow: 0 12px 34px rgba(30, 58, 95, 0.05);
+      gap: 1rem;
     }
     .nav-logo {
       display: flex;
@@ -147,6 +155,10 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
       color: var(--gold-deep);
       border-bottom-color: var(--gold);
     }
+    .nav-links a[aria-current='page'] {
+      color: var(--gold-deep);
+      border-bottom-color: var(--gold);
+    }
 
     .nav-cta {
       background: var(--gold);
@@ -165,6 +177,100 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
     .nav-cta:hover {
       background: var(--gold-deep);
       color: white;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(30, 58, 95, 0.12);
+      background: white;
+      border-radius: 999px;
+      color: var(--blue-deep);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: 0 6px 18px rgba(30, 58, 95, 0.05);
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 999px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .menu-toggle[aria-expanded='true'] span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded='true'] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded='true'] span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .mobile-panel {
+      display: none;
+      padding: 0 1.2rem 1.2rem;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(220, 232, 240, 0.9);
+      box-shadow: 0 16px 34px rgba(30, 58, 95, 0.05);
+    }
+
+    .mobile-panel[data-open='true'] {
+      display: block;
+    }
+
+    .mobile-panel-inner {
+      width: min(100%, 1120px);
+      margin: 0 auto;
+      padding-top: 0.35rem;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      display: grid;
+      gap: 0.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .mobile-nav-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.1rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      color: var(--blue-deep);
+      background: rgba(234, 242, 248, 0.55);
+      border: 1px solid rgba(30, 58, 95, 0.06);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .mobile-nav-list a[aria-current='page'] {
+      background: rgba(196, 149, 90, 0.12);
+      color: var(--gold-deep);
+    }
+
+    .mobile-panel-cta {
+      display: inline-flex;
+      width: 100%;
+      justify-content: center;
     }
 
     /* === Hero === */
@@ -377,7 +483,7 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
       border-top: 4px solid var(--gold);
       font-size: 0.9rem;
       line-height: 1.8;
-      border-radius: 8px;
+      border-radius: var(--radius-md);
     }
     .presentation-aside .label {
       font-size: 0.7rem;
@@ -413,7 +519,7 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
       padding: 2.5rem 2rem;
       border-left: 3px solid var(--gold);
       transition: all 0.3s;
-      border-radius: 10px;
+      border-radius: var(--radius-md);
     }
     .qui-card:hover {
       border-left-width: 6px;
@@ -457,7 +563,7 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
       background: white;
       padding: 3rem 2.2rem;
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: var(--radius-md);
       position: relative;
       transition: all 0.3s;
       overflow: hidden;
@@ -642,7 +748,7 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
       background: var(--cream);
       padding: 3rem;
       border-top: 4px solid var(--gold);
-      border-radius: 10px;
+      border-radius: var(--radius-md);
     }
     .rdv-right .label {
       font-size: 0.7rem;
@@ -790,6 +896,8 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
       .top-strip .sep { display: none; }
       nav { padding: 0 1.2rem; height: 72px; }
       .nav-links { display: none; }
+      .nav-actions .nav-cta { display: none; }
+      .menu-toggle { display: inline-flex; }
       .hero { padding: 4rem 1.2rem 5rem; }
       section { padding: 4.5rem 1.2rem; }
       .footer-content { grid-template-columns: 1fr; gap: 2rem; }
@@ -814,14 +922,35 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="/parcours">Parcours de soin</a></li>
-    <li><a href="/mental-restrictif">Mental restrictif</a></li>
-    <li><a href="/equipe">Équipe</a></li>
-    <li><a href="/ressources">Ressources</a></li>
-    <li><a href="/contact">Contact</a></li>
+    <li><a href="/parcours" aria-current={currentPath === '/parcours' ? 'page' : undefined}>Parcours de soin</a></li>
+    <li><a href="/mental-restrictif" aria-current={currentPath === '/mental-restrictif' ? 'page' : undefined}>Mental restrictif</a></li>
+    <li><a href="/equipe" aria-current={currentPath === '/equipe' ? 'page' : undefined}>Équipe</a></li>
+    <li><a href="/ressources" aria-current={currentPath === '/ressources' ? 'page' : undefined}>Ressources</a></li>
+    <li><a href="/contact" aria-current={currentPath === '/contact' ? 'page' : undefined}>Contact</a></li>
   </ul>
-  <a href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988" class="nav-cta" target="_blank" rel="noopener">Rendez-vous</a>
+  <div class="nav-actions">
+    <a href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988" class="nav-cta" target="_blank" rel="noopener">Rendez-vous</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-panel" aria-label="Ouvrir le menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </nav>
+
+<div id="mobile-panel" class="mobile-panel" data-open="false">
+  <div class="mobile-panel-inner">
+    <ul class="mobile-nav-list">
+      <li><a href="/" aria-current={currentPath === '/' ? 'page' : undefined}>Accueil</a></li>
+      <li><a href="/parcours" aria-current={currentPath === '/parcours' ? 'page' : undefined}>Parcours de soin</a></li>
+      <li><a href="/mental-restrictif" aria-current={currentPath === '/mental-restrictif' ? 'page' : undefined}>Mental restrictif</a></li>
+      <li><a href="/equipe" aria-current={currentPath === '/equipe' ? 'page' : undefined}>Équipe</a></li>
+      <li><a href="/ressources" aria-current={currentPath === '/ressources' ? 'page' : undefined}>Ressources</a></li>
+      <li><a href="/contact" aria-current={currentPath === '/contact' ? 'page' : undefined}>Contact</a></li>
+    </ul>
+    <a href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988" class="nav-cta mobile-panel-cta" target="_blank" rel="noopener">Prendre rendez-vous</a>
+  </div>
+</div>
 
 <slot />
 
@@ -854,7 +983,7 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
       <h3>En savoir plus</h3>
       <ul>
         <li><a href="https://association-lanotebleue.fr" target="_blank" rel="noopener">Association La Note Bleue</a></li>
-        <li><a href="#" target="_blank" rel="noopener">Livre d'Aude Réhault (Dunod)</a></li>
+        <li><a href="https://www.dunod.com/sciences-humaines-et-sociales/sortir-anorexie-et-boulimie-construire-sa-trajectoire-soin" target="_blank" rel="noopener">Livre d'Aude Réhault (Dunod)</a></li>
         <li><a href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988" target="_blank" rel="noopener">Doctolib</a></li>
       </ul>
     </div>
@@ -867,6 +996,23 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
 
 <script is:inline>
   (function () {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var mobilePanel = document.getElementById('mobile-panel');
+    if (menuToggle && mobilePanel) {
+      menuToggle.addEventListener('click', function () {
+        var isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!isOpen));
+        mobilePanel.setAttribute('data-open', String(!isOpen));
+      });
+
+      mobilePanel.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          mobilePanel.setAttribute('data-open', 'false');
+        });
+      });
+    }
+
     var revealElements = document.querySelectorAll('.reveal');
     if (!('IntersectionObserver' in window)) {
       // Fallback : tout afficher si IntersectionObserver n'est pas supporté
