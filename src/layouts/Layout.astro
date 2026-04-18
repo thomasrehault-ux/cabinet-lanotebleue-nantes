@@ -865,16 +865,33 @@ const canonical = `https://cabinet-lanotebleue-nantes.fr${canonicalPath}`;
   </div>
 </footer>
 
-<script>
-  const revealElements = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.12 });
-  revealElements.forEach(el => observer.observe(el));
+<script is:inline>
+  (function () {
+    var revealElements = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      // Fallback : tout afficher si IntersectionObserver n'est pas supporté
+      revealElements.forEach(function (el) { el.classList.add('visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -80px 0px' });
+    revealElements.forEach(function (el) { observer.observe(el); });
+
+    // Filet de sécurité : si un élément reste caché après 1.5 s, on l'affiche
+    setTimeout(function () {
+      revealElements.forEach(function (el) {
+        if (!el.classList.contains('visible')) {
+          el.classList.add('visible');
+        }
+      });
+    }, 1500);
+  })();
 </script>
 
 </body>
