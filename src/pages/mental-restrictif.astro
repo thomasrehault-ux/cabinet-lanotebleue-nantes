@@ -1,0 +1,344 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const signes = [
+  {
+    titre: "La dissociation",
+    texte: "Le mécanisme qui déconnecte le corps et l'esprit. C'est ce moment où l'on est là et en même temps ailleurs, où le temps ne défile plus comme d'habitude, où l'on fait sans vraiment s'en rendre compte. La restriction, les crises avec ou sans vomissement, les obsessions alimentaires et corporelles sont autant de portes d'entrée dans ce mode de veille. La conscience de soi en ressort perturbée, modifiée.",
+    citation: "La restriction ça m'emmène sur une autre planète. C'est comme si enfin les choses coulaient sur moi. Je suis plus légère. Rien n'est un problème. Ça n'est même pas agréable, je ressens pas c'est tout.",
+  },
+  {
+    titre: "L'alexithymie",
+    texte: "Une difficulté à identifier, différencier et exprimer ses émotions, les siennes comme celles des autres. Une sorte d'anesthésie émotionnelle, qui met à distance un vécu devenu perturbant, voire dangereux pour l'esprit. Dans la relation, percevoir l'émotion de l'autre peut elle-même devenir gênante, impossible à traiter.",
+    citation: "Je ne voulais pas revivre ça. Il fallait que je sois forte pour ne pas montrer que j'avais peur. Je suis restée coupée de moi-même pour ne plus ressentir.",
+  },
+  {
+    titre: "L'anhédonie",
+    texte: "La perte de la capacité à ressentir le plaisir. Quand le corps et l'esprit ne fonctionnent plus de pair, percevoir ce qui plaît devient compliqué. Le plaisir est parfois ressenti comme culpabilisant, sans intérêt, voire comme une faute : il y aurait toujours mieux à faire, plus efficace, plus rigoureux.",
+    citation: "Ce qui me fait plaisir à moi toute seule ? Ça n'a pas d'importance ça. Je ne sais pas ce qui me fait plaisir, à part de voir les autres heureux.",
+  },
+  {
+    titre: "La dualité intérieure et l'ambivalence",
+    texte: "À force de vivre à côté de soi, on devient double. Une partie intérieure prend le pouvoir, à la manière d'un tyran qui impose ses règles pour préserver de l'effondrement. La personne oscille entre ses propres ressentis, quand elle y accède, et le discours de cette partie restrictive (parfois nommée Ana, ou tout autre prénom). De là naissent le déni apparent, l'ambivalence, les allers-retours épuisants pour la personne comme pour son entourage.",
+    citation: "C'est clair qu'il y a une partie qui dit oui et une partie qui dit non. Parfois je ne sais pas trop sur quel pied danser.",
+  },
+  {
+    titre: "Le doute",
+    texte: "La difficulté à s'unifier nourrit un doute qui gagne toutes les sphères de la vie. Chaque décision déclenche un arbre de possibilités que la partie restrictive exploite pour défaire les choix. Même le plus petit achat, la plus petite préférence, peut devenir un champ de bataille intérieur.",
+    citation: "J'essaye de me décider, mais je n'y arrive pas. J'ai toujours des arguments pour me dire le contraire.",
+  },
+  {
+    titre: "La faible estime de soi",
+    texte: "L'identité n'ayant pas pu s'ancrer en soi, elle cherche des appuis extérieurs : performances scolaires, réussite professionnelle, contrôle du corps. Ces appuis sont fragiles. Le tyran intérieur rappelle en permanence que la personne n'est rien, ou qu'une chose fragile prête à s'effondrer. Plus il est présent, plus les preuves à fournir doivent être éclatantes.",
+    citation: "Je ne comprends pas pourquoi il me parle. Je n'ai rien d'intéressant. Il va se lasser. Il va se rendre compte que je ne suis pas intéressante.",
+  },
+  {
+    titre: "Le perfectionnisme et l'hyperexigence",
+    texte: "La faible estime pousse au perfectionnisme, seul moyen perçu d'être un minimum présentable. Cette exigence s'applique d'abord à soi, parfois aux autres. Elle tente aussi d'étouffer le doute et l'ambivalence : en visant la perfection, on espère faire taire l'angoisse. Ces signes sont rarement remis en question, parce qu'ils sont socialement valorisés.",
+    citation: "J'essaye de bien faire les choses. De toute façon, je crois que je ne sais pas faire autrement.",
+  },
+  {
+    titre: "La maîtrise, le contrôle de soi, du monde, des relations",
+    texte: "Le contrôle devient identitaire. Contrôle des émotions jugées débordantes, de l'environnement qui doit rester stable, de la relation avec les autres, jusqu'à la relation thérapeutique elle-même. Cette hypertrophie du contrôle est la réponse à une angoisse profonde : celle de ne pas se sentir exister si rien ne tient.",
+    citation: "J'aime tout planifier, c'est un grand défaut. J'aime pas quand je sens que je ne contrôle pas une situation.",
+  },
+  {
+    titre: "Compulsions, obsessions, rituels",
+    texte: "Un petit vélo dans la tête, qui ne s'arrête pas. Des pensées qui s'imposent et ne laissent pas de répit. Les compulsions et les rituels apparaissent comme une réponse, apaisante sur l'instant, mais qu'il faut sans cesse recommencer. La boucle s'auto-alimente.",
+    citation: "Je ne peux pas m'empêcher de compter les calories. Je ne cherche même pas à le faire, c'est comme si ça s'affichait directement sur mon écran.",
+  },
+  {
+    titre: "Le sentiment d'indignité",
+    texte: "Un syndrome de l'imposteur qui se décline dans toutes les sphères : professionnelle, affective, relationnelle. Quand la réussite arrive, elle est attribuée à la chance, au hasard, à l'erreur des autres. La personne se sent obligée de travailler toujours plus pour « mériter », dans une course sans fin.",
+    citation: "J'ai souvent le sentiment de ne pas mériter cette vie. Comme si c'était trop beau pour être vrai. Comme si je l'avais volé.",
+  },
+  {
+    titre: "Les difficultés relationnelles",
+    texte: "Se sentir en relation suppose de se sentir soi. Quand la sensation de soi fait défaut, la relation se vit à travers un arbre de probabilités, des règles, des comparaisons, au lieu de s'éprouver. Le contrôle se glisse dans les échanges, parfois par peur du conflit, parfois par peur de ne pas plaire. Paradoxalement, plus la personne fournit d'efforts relationnels, plus elle se sent éloignée et isolée.",
+    citation: "Ma vie sociale est top. Mais parfois je me sens quand même à part. Comme si je n'avais pas vraiment ma place avec eux.",
+  },
+  {
+    titre: "Le sentiment de vide",
+    texte: "Une sensation désagréable de coquille vide, qu'aucune réussite apparente ne vient vraiment remplir. Le vide peut émerger dans les moments de calme, et certaines conduites s'installent précisément pour ne pas le rencontrer : boulimie, hyperactivité, obsessions, scénarios anxieux. Tout ce qui peut donner, le temps d'un instant, la sensation d'exister.",
+    citation: "J'ai trop peur de ce vide, cette absence, ce néant. À quoi je vais penser si mes obsessions disparaissent ?",
+  },
+  {
+    titre: "L'hyperactivité",
+    texte: "Physique (pratique sportive intensive, marche permanente, refus de s'asseoir) ou psychique (travail, mentalisation constante, activités sans répit). L'hyperactivité canalise les obsessions, remplit le vide, évite la confrontation à soi. Elle offre, à travers l'effort, des sensations qui donnent l'illusion d'exister.",
+    citation: "Tout le monde pense que je suis super intelligente, mais c'est juste que je n'arrête pas de bosser.",
+  },
+  {
+    titre: "Le temps vécu différemment",
+    texte: "Un pied dans le passé (souvenirs douloureux, temps perdu), un pied dans l'avenir (anticipation, scénarios catastrophes, idéalisation), sans pouvoir se poser dans le présent. Le présent serait précisément le moment de la confrontation à soi, donc évité. La montre peut se caler sur les repas ou les crises, plus que sur la vie qui se déroule.",
+    citation: "Je ne vois pas passer le temps, c'est atroce. Ça fait déjà dix ans que ça a commencé. Pour moi j'ai commencé hier.",
+  },
+  {
+    titre: "L'altération de la fonction symbolique",
+    texte: "Pour limiter l'envahissement des obsessions, la pensée se rigidifie en binaire, en opératoire, en tout noir ou tout blanc. Mais ce verrouillage prive aussi la personne de la respiration de l'imaginaire, de la rêverie, de la créativité, parfois même de l'humour et du second degré. L'univers perd de ses nuances, et avec elles, de son sens.",
+    citation: "Je ne rêve plus depuis des années. Mes rêves, les rares fois où j'en ai, sont comme mon esprit conscient : obsessionnels.",
+  },
+  {
+    titre: "L'anorgasmie",
+    texte: "L'orgasme suppose un lien vivant entre corps et esprit. Quand ce lien est fragilisé, même lorsqu'il y a excitation, la relation sexuelle peut devenir un moment où l'on « fait semblant », où l'on se déconnecte. D'autres modalités existent (hyperactivité sexuelle sans accès au plaisir, évitement, douleur), toutes traduisant la même difficulté à habiter le corps dans la relation.",
+    citation: "Je n'arrive pas toujours à être à ce que je fais. J'ai souvent plein d'autres pensées qui m'envahissent.",
+  },
+  {
+    titre: "La dysthymie, la souffrance",
+    texte: "Quand le contrôle tient, l'humeur peut sembler stable. Quand il vacille, la tristesse, la dépressivité, le découragement reprennent. Vient s'ajouter la durée : le trouble commence souvent à l'adolescence, les tentatives de s'en sortir échouent, les demandes d'aide ne sont pas toujours entendues. Comment ne pas désespérer après des années d'errance thérapeutique ? Les troubles des conduites alimentaires sont parmi les pathologies psychiatriques les plus suicidogènes. Il ne s'agit pas d'une volonté de mourir, mais d'un désespoir de s'en sortir. C'est précisément parce que la force de vie est intense, chez les personnes concernées, qu'il est urgent de leur proposer des soins à la hauteur.",
+    citation: "Cela fait longtemps maintenant que je me sens mal. Je fais plein d'efforts. Je ne comprends pas ce qui m'arrive. Je suis perdue.",
+  },
+];
+---
+
+<Layout
+  title="Le mental restrictif · Cabinet La Note Bleue · Nantes"
+  description="Une notion transdiagnostique, clé pour comprendre ce qui organise en profondeur les troubles des conduites alimentaires. Les 17 signes du mental restrictif, expliqués."
+  canonicalPath="/mental-restrictif"
+>
+
+<!-- Hero de page -->
+<section class="hero hero-page">
+  <div class="hero-inner reveal">
+    <div class="hero-label">Une notion transdiagnostique</div>
+    <h1>Le <em>mental restrictif</em></h1>
+    <p class="hero-lede">Une notion clé pour comprendre ce qui organise, en profondeur, les troubles des conduites alimentaires. Au-delà des symptômes visibles, une structure psycho-corporelle commune à l'anorexie, à la boulimie et à l'hyperphagie.</p>
+  </div>
+</section>
+
+<!-- Section 1 · Filiation clinique -->
+<section class="bg-warm-white">
+  <div class="inner-narrow reveal">
+    <div class="section-head section-head-simple">
+      <div class="section-head-text">
+        <div class="section-label">Origine de la notion</div>
+        <h2>Une filiation <em>clinique précise</em></h2>
+      </div>
+    </div>
+    <div class="divider-gold"></div>
+    <div class="prose">
+      <p>Le <strong>mental anorexique</strong> est une notion créée par Alain Meunier, psychiatre et psychanalyste, pour nommer une organisation psychique repérable dans l'anorexie : une voix intérieure tyrannique, des règles rigides, un contrôle qui se substitue au ressenti. Cette notion a été approfondie et étoffée dans son travail avec Aude Réhault.</p>
+      <p>Le <strong>mental restrictif</strong> est le prolongement transdiagnostique de ce travail, développé exclusivement par Aude Réhault. Il élargit la perspective : la même structure psycho-corporelle se retrouve, sous des formes différentes, dans l'anorexie, la boulimie et l'hyperphagie. Trente ans d'expérience clinique auprès de personnes souffrant de troubles des conduites alimentaires soutiennent cette élaboration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2 · Qu'est-ce que le mental restrictif -->
+<section class="bg-cream">
+  <div class="inner-narrow reveal">
+    <div class="section-head section-head-simple">
+      <div class="section-head-text">
+        <div class="section-label">Définition clinique</div>
+        <h2>Qu'est-ce que <em>le mental restrictif</em></h2>
+      </div>
+    </div>
+    <div class="divider-gold"></div>
+    <div class="prose">
+      <p>Le mental restrictif n'est pas un trait de caractère, ni une volonté consciente. C'est une <strong>organisation psychique de substitution</strong>, qui se met en place lorsque la sécurité intérieure a été fragilisée.</p>
+      <p>Lorsque la sensation de soi fait défaut, un axe interne s'effondre. Pour ne pas s'effondrer avec lui, la personne s'appuie sur des règles, un contrôle, une rationalité, qui servent de béquille identitaire. Elle se pense plus qu'elle ne se ressent. Cette organisation apporte une sécurité apparente, mais elle se rigidifie avec le temps, et génère une tension chronique qui peut décompenser sur le mode alimentaire (restriction, crise, vomissement, obsession).</p>
+      <p>Sa particularité clinique : il peut être <strong>très peu visible</strong>. Une personne qui fonctionne à l'école, au travail, dans ses relations, peut être en plein mental restrictif sans que rien ne le laisse paraître. C'est dans la combinaison des signes qui suivent, dans leur intensité, leur automatisme, leur fréquence, que se dessine sa présence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3 · Les 17 signes -->
+<section class="bg-warm-white signes-section">
+  <div class="inner reveal">
+    <div class="section-head section-head-simple signes-head">
+      <div class="section-head-text">
+        <div class="section-label">Ce qui fait signe</div>
+        <h2>Les <em>17 signes</em> du mental restrictif</h2>
+      </div>
+    </div>
+    <div class="divider-gold"></div>
+    <p class="signes-intro">Aucun signe, pris isolément, ne suffit à parler de mental restrictif. Certains peuvent même se présenter comme des traits de personnalité ordinaires. C'est leur combinaison, et surtout le sentiment qu'on ne peut plus s'en passer, qui fait signe.</p>
+
+    <div class="signes-grid">
+      {signes.map((signe, idx) => (
+        <article class="signe-card">
+          <div class="signe-num">{String(idx + 1).padStart(2, '0')}</div>
+          <div class="signe-body">
+            <h3>{signe.titre}</h3>
+            <p>{signe.texte}</p>
+            <blockquote class="signe-citation">{signe.citation}</blockquote>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Section 4 · Aucun signe n'est une condamnation -->
+<section class="mr-section">
+  <div class="inner-narrow reveal">
+    <div class="section-label">Lire ces signes avec justesse</div>
+    <h2>Aucun signe <em>n'est une condamnation</em></h2>
+    <div class="divider-gold" style="background: var(--gold-light); margin-top: 1.5rem;"></div>
+    <p class="mr-lede">Un signe n'est pas une maladie. Plusieurs signes ne font pas forcément un trouble. Ce qui fait signe, c'est le sentiment que ces fonctionnements sont devenus indispensables, automatiques, envahissants, et qu'ils tiennent la personne à distance d'elle-même.</p>
+    <p>Si vous reconnaissez dans cette description votre fonctionnement, celui d'un proche, ou celui d'un patient, un accompagnement spécialisé peut vous aider à démêler ce qui relève de la personnalité, ce qui relève d'une stratégie d'adaptation, et ce qui relève d'un soin à engager.</p>
+    <div style="margin-top: 2.5rem; display: flex; gap: 1.2rem; flex-wrap: wrap;">
+      <a href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988" class="btn-primary" target="_blank" rel="noopener">Prendre rendez-vous</a>
+      <a href="/parcours" class="btn-secondary">Notre parcours de soin</a>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5 · Pour approfondir -->
+<section class="bg-cream">
+  <div class="inner reveal">
+    <div class="livre-grid">
+      <div class="livre-visuel">
+        <img src="/images/rehault-sortir-anorexie.jpg" alt="Couverture du livre Sortir de l'anorexie et de la boulimie d'Aude Réhault">
+      </div>
+      <div class="livre-content">
+        <div class="section-label">Pour approfondir</div>
+        <h2>Sortir de l'anorexie <em>et de la boulimie</em></h2>
+        <div class="author">Aude Réhault · Éditions Dunod</div>
+        <div class="divider-gold"></div>
+        <p>Cet ouvrage expose en profondeur la notion de mental restrictif, le trouble de l'image du corps, et l'articulation en synergie des trois axes de soin (psychique, corporel, diététique) pratiquée au cabinet.</p>
+        <div class="btn-group">
+          <a href="#" class="btn-primary btn-primary-light" target="_blank" rel="noopener">Voir sur le site de l'éditeur</a>
+          <a href="/ressources" class="btn-secondary btn-secondary-dark">Toutes les ressources</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</Layout>
+
+<style>
+  /* Hero de page intérieure */
+  .hero-page {
+    padding: 4.5rem 2rem 5rem;
+  }
+  .hero-page h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    max-width: 800px;
+  }
+  .hero-page .hero-lede {
+    font-size: 1.05rem;
+    max-width: 720px;
+    margin-bottom: 0;
+  }
+
+  /* Section-head sans numéro romain */
+  .section-head-simple {
+    gap: 0;
+  }
+  .section-head-simple .section-head-text {
+    width: 100%;
+  }
+
+  /* Prose pour sections narratives */
+  .prose p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    margin-bottom: 1.3rem;
+    line-height: 1.85;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong {
+    color: var(--blue-deep);
+    font-weight: 600;
+  }
+
+  /* Section 17 signes — head et intro */
+  .signes-head { max-width: 820px; margin-left: auto; margin-right: auto; }
+  .signes-intro {
+    max-width: 820px;
+    margin: 0 auto 4rem;
+    font-size: 1.02rem;
+    color: var(--text-mid);
+    line-height: 1.85;
+    font-style: italic;
+  }
+
+  /* Grille des 17 signes */
+  .signes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .signe-card {
+    background: white;
+    padding: 2.2rem 2.5rem;
+    border-left: 3px solid var(--gold);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.8rem;
+    align-items: start;
+    transition: all 0.3s;
+  }
+  .signe-card:hover {
+    border-left-width: 5px;
+    box-shadow: 0 6px 28px rgba(30, 58, 95, 0.08);
+  }
+  .signe-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.2rem;
+    color: var(--gold);
+    font-weight: 400;
+    line-height: 1;
+    padding-top: 0.2rem;
+    min-width: 2.8rem;
+  }
+  .signe-body {
+    min-width: 0;
+  }
+  .signe-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--blue-deep);
+    font-weight: 500;
+    margin-bottom: 0.9rem;
+    line-height: 1.3;
+  }
+  .signe-body p {
+    font-size: 0.98rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 1.4rem;
+  }
+  .signe-citation {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.98rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+    padding: 1.2rem 1.4rem 1.2rem 1.6rem;
+    background: var(--cream);
+    border-left: 2px solid var(--gold-light);
+    border-radius: 4px;
+    position: relative;
+  }
+  .signe-citation::before {
+    content: '«';
+    position: absolute;
+    left: 0.4rem;
+    top: 0.4rem;
+    font-size: 1.4rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .signe-citation::after {
+    content: '»';
+    margin-left: 0.2rem;
+    color: var(--gold);
+  }
+
+  @media (max-width: 640px) {
+    .signe-card {
+      grid-template-columns: 1fr;
+      padding: 1.8rem;
+      gap: 1rem;
+    }
+    .signe-num {
+      font-size: 1.8rem;
+      padding-top: 0;
+    }
+  }
+</style>
