@@ -7,7 +7,7 @@ const axes = [
     titre: 'Psychologie clinique · psychothérapie',
     description:
       "Travail sur le mental restrictif, la dualité intérieure, la restauration progressive d'une sécurité intérieure et d'une présence à soi unifiée.",
-    praticiens: 'Aude Réhault · Charles-Antoine Menanteau · Nathalie Saget',
+    praticiens: 'Aude Réhault · Charles-Antoine Menanteau',
   },
   {
     numero: '02',
@@ -23,12 +23,6 @@ const axes = [
       "Travail sur l'enveloppe corporelle, les limites, l'ancrage, la modulation tonique, la restauration d'une sécurité corporelle vécue.",
     praticiens: 'Blanche Augarde-Dollé · Séverine Gauvin',
   },
-];
-
-const reperes = [
-  'Cabinet pluridisciplinaire à Nantes',
-  "Approche intégrative construite sur 30 ans d'expérience clinique",
-  'Prise de rendez-vous directe sur Doctolib',
 ];
 
 const publics = [
@@ -58,12 +52,12 @@ const publics = [
   <section class="home-hero">
     <div class="home-hero-shell reveal">
       <div class="home-hero-copy">
-        <div class="hero-kicker">Cabinet pluridisciplinaire · Nantes · Troubles des conduites alimentaires</div>
-        <h1>Une trajectoire de soin <em>plus incarnée</em>, pensée pour durer.</h1>
+        <div class="hero-kicker">Cabinet pluridisciplinaire · Nantes · 30 ans d'expérience clinique</div>
+        <h1>Une trajectoire de soin <em>structurée</em> pour les troubles des conduites alimentaires.</h1>
         <p class="hero-intro">
-          Le Cabinet La Note Bleue réunit psychologues, diététiciennes et psychomotriciennes
-          autour d'une même conviction clinique : on ne soigne pas durablement un TCA en
-          s'occupant seulement des symptômes visibles.
+          Une approche clinique intégrative qui articule, en synergie, le travail psychique,
+          corporel et diététique. Pour comprendre et traverser l'anorexie, la boulimie,
+          l'hyperphagie, et plus largement le mental restrictif.
         </p>
         <div class="hero-actions">
           <a
@@ -74,21 +68,19 @@ const publics = [
           >
             Prendre rendez-vous
           </a>
-          <a href="/parcours" class="btn-secondary">Découvrir l'approche</a>
+          <a href="/parcours" class="btn-secondary">Notre approche</a>
         </div>
       </div>
 
       <aside class="hero-panel">
-        <div class="hero-panel-label">Repères</div>
-        <ul class="hero-panel-list">
-          {reperes.map((repere) => <li>{repere}</li>)}
-        </ul>
+        <div class="hero-panel-label">Distinction utile</div>
         <div class="hero-panel-note">
-          Le cabinet est distinct de l'association La Note Bleue, dédiée à l'information,
-          l'orientation et au soutien des personnes concernées et de leur entourage.
+          Le cabinet est distinct de l'association La Note Bleue, qui a pour mission
+          l'information, l'orientation et le soutien des personnes concernées et de leur
+          entourage.
         </div>
         <a href="https://association-lanotebleue.fr" target="_blank" rel="noopener" class="hero-panel-link">
-          Découvrir l'association
+          Découvrir l'association →
         </a>
       </aside>
     </div>
@@ -106,18 +98,26 @@ const publics = [
       <div class="intent-grid">
         <div class="intent-prose">
           <p>
-            Derrière l'anorexie, la boulimie ou l'hyperphagie, il existe souvent une structure
-            psycho-corporelle commune, transdiagnostique, que nous appelons le
-            <strong> mental restrictif</strong>.
+            Le Cabinet La Note Bleue Nantes réunit des psychologues, des diététiciennes et des
+            psychomotriciennes autour d'une même conviction clinique : traiter un trouble des
+            conduites alimentaires suppose d'aller <strong>au-delà des symptômes visibles</strong>.
           </p>
           <p>
-            C'est en travaillant cette structure, en même temps que le rapport au corps et à
-            l'alimentation, que s'ouvre une trajectoire de soin durable.
+            Derrière l'anorexie, la boulimie ou l'hyperphagie, il existe une structure
+            psycho-corporelle commune, transdiagnostique, que nous appelons le
+            <strong>mental restrictif</strong>. C'est en travaillant cette structure, en même
+            temps que le rapport au corps et à l'alimentation, que s'ouvre une trajectoire de
+            soin durable.
+          </p>
+          <p>
+            Notre approche, articulée en synergie entre les trois axes (corps, psychisme,
+            diététique), est le fruit de <strong>30 ans d'expérience clinique</strong> auprès de
+            personnes souffrant de TCA.
           </p>
         </div>
         <div class="intent-card">
-          <div class="intent-card-value">3</div>
-          <p>axes en synergie : psychique, corporel et diététique.</p>
+          <div class="intent-card-value">30</div>
+          <p>ans d'expérience clinique</p>
         </div>
       </div>
     </div>
@@ -192,6 +192,13 @@ const publics = [
         met en place quand la sécurité intérieure est fragilisée.
       </p>
       <p>
+        Cette notion s'inscrit dans une filiation clinique précise : le
+        <strong>mental anorexique</strong>, créé par Alain Meunier et approfondi dans son travail
+        avec Aude Réhault. Le <strong>mental restrictif</strong>, notion transdiagnostique, en est
+        le prolongement exclusivement développé par Aude Réhault. Trente ans d'expérience
+        clinique soutiennent ces élaborations.
+      </p>
+      <p>
         Comprendre le mental restrictif, c'est souvent le premier pas d'un soin qui ne se
         contente plus d'agir sur les symptômes.
       </p>
@@ -244,9 +251,9 @@ const publics = [
           <h2>Un premier rendez-vous <em>au cabinet</em></h2>
           <div class="divider-gold"></div>
           <p>
-            Les rendez-vous se prennent directement en ligne sur Doctolib. Vous pouvez cibler
-            un praticien si vous savez qui vous souhaitez consulter, ou commencer par une
-            première prise de contact.
+            Les rendez-vous se prennent directement en ligne sur Doctolib. Vous pouvez contacter
+            le cabinet pour un premier contact, ou cibler directement un praticien si vous
+            savez qui vous souhaitez consulter.
           </p>
           <div class="rdv-cta-group">
             <a
@@ -268,10 +275,6 @@ const publics = [
             6 et 7 rue des Rochettes<br />
             44000 Nantes
           </address>
-          <p class="location-note">
-            Un lieu unique pour permettre la circulation discrète de l'information clinique entre
-            praticiens.
-          </p>
         </aside>
       </div>
     </div>
