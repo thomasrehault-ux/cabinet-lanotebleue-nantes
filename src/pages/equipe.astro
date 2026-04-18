@@ -5,6 +5,7 @@ const axes = [
   {
     id: 'psychologie',
     titre: 'Psychologie clinique · psychothérapie',
+    soustitre: 'Comprendre, traverser, réparer',
     description: "Travail sur le mental restrictif, la dualité intérieure, la restauration progressive d'une sécurité intérieure et d'une présence à soi unifiée.",
     praticiens: [
       {
@@ -33,6 +34,7 @@ const axes = [
   {
     id: 'dietetique',
     titre: 'Diététique · nutrition',
+    soustitre: 'Réapprendre à se nourrir, sans peur',
     description: "Accompagnement alimentaire intégratif, restauration de l'intéroception, travail sur les croyances alimentaires, sortie progressive du contrôle.",
     praticiens: [
       {
@@ -61,6 +63,7 @@ const axes = [
   {
     id: 'psychomotricite',
     titre: 'Psychomotricité',
+    soustitre: 'Réhabiter son corps',
     description: "Travail sur l'enveloppe corporelle, les limites, l'ancrage, la modulation tonique, la restauration d'une sécurité corporelle vécue.",
     praticiens: [
       {
@@ -105,6 +108,7 @@ const axes = [
       <div class="container">
         <div class="axe-header">
           <h2 class="axe-titre">{axe.titre}</h2>
+          <p class="axe-soustitre">{axe.soustitre}</p>
         </div>
         <p class="axe-description">{axe.description}</p>
 
@@ -169,13 +173,22 @@ const axes = [
     margin-bottom: 1.8rem;
   }
 
-  .axe-titre {
-    font-family: var(--font-display);
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
-    font-weight: 400;
-    color: var(--blue-deep);
-    line-height: 1.15;
-  }
+.axe-titre {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--blue-deep);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.axe-soustitre {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold);
+  font-weight: 400;
+}
 
   .axe-description {
     font-family: var(--font-body);
@@ -194,17 +207,18 @@ const axes = [
     gap: 2rem;
   }
 
-  .praticien-card {
-    background: #ffffff;
-    border: 1px solid rgba(30, 58, 95, 0.1);
-    border-top: 3px solid var(--gold);
-    padding: 2.2rem 2rem;
-    box-shadow: 0 2px 8px rgba(30, 58, 95, 0.04);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-  }
+.praticien-card {
+  background: #ffffff;
+  border: 1px solid rgba(30, 58, 95, 0.1);
+  border-top: 3px solid var(--gold);
+  border-radius: 10px;   /* ← ajouter cette ligne */
+  padding: 2.2rem 2rem;
+  box-shadow: 0 2px 8px rgba(30, 58, 95, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
 
   .praticien-card:hover {
     transform: translateY(-2px);
@@ -266,49 +280,6 @@ const axes = [
     color: var(--text-tertiary, #8a8a8a);
     font-style: italic;
     font-weight: 300;
-  }
-
-  /* ========== SYNERGIE ========== */
-  .synergie-section {
-    padding: 6rem 0;
-    background: var(--blue-deep);
-    color: var(--warm-white);
-  }
-
-  .synergie-inner {
-    max-width: 760px;
-  }
-
-  .synergie-label {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--gold);
-    margin-bottom: 1.2rem;
-  }
-
-  .synergie-titre {
-    font-family: var(--font-display);
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
-    font-weight: 400;
-    line-height: 1.2;
-    margin-bottom: 2rem;
-    color: var(--warm-white);
-  }
-
-  .synergie-prose p {
-    font-family: var(--font-body);
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 1.4rem;
-    font-weight: 300;
-  }
-
-  .synergie-prose p:last-child {
-    margin-bottom: 0;
   }
 
   /* ========== RESPONSIVE ========== */
