@@ -1,0 +1,216 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact · Cabinet La Note Bleue · Nantes"
+  description="Prendre rendez-vous au Cabinet La Note Bleue à Nantes. Consultations sur Doctolib. Adresse : 6 et 7 rue des Rochettes, 44000 Nantes."
+  canonicalPath="/contact"
+>
+
+<!-- Hero de page -->
+<section class="hero hero-page">
+  <div class="hero-inner reveal">
+    <div class="hero-label">Contact</div>
+    <h1>Prendre rendez-vous <em>au cabinet</em></h1>
+    <p class="hero-lede">Les consultations se prennent directement en ligne, via Doctolib. Vous pouvez nous contacter pour un premier rendez-vous, ou cibler directement le praticien que vous souhaitez consulter.</p>
+  </div>
+</section>
+
+<!-- Section Doctolib -->
+<section class="bg-cream">
+  <div class="inner-narrow reveal">
+    <div class="section-head section-head-simple">
+      <div class="section-head-text">
+        <div class="section-label">Rendez-vous</div>
+        <h2>Par <em>Doctolib</em></h2>
+      </div>
+    </div>
+    <div class="divider-gold"></div>
+    <p class="contact-lede">
+      L'ensemble des praticiens du cabinet est référencé sur Doctolib. Vous pouvez
+      consulter les disponibilités et prendre rendez-vous directement en ligne,
+      ou bien passer par la page de l'équipe pour choisir un praticien selon votre besoin.
+    </p>
+    <div class="btn-group">
+      <a
+        href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988"
+        class="btn-primary btn-primary-light"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Accéder au cabinet sur Doctolib
+      </a>
+      <a href="/equipe" class="btn-secondary btn-secondary-dark">
+        Choisir un praticien
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Section Adresse + Plan -->
+<section class="bg-warm-white">
+  <div class="inner reveal">
+    <div class="section-head section-head-simple">
+      <div class="section-head-text">
+        <div class="section-label">Nous trouver</div>
+        <h2>Le <em>cabinet</em></h2>
+      </div>
+    </div>
+    <div class="divider-gold"></div>
+
+    <div class="contact-grid">
+      <div class="contact-infos">
+        <div class="contact-label">Adresse</div>
+        <address>
+          <strong>Cabinet La Note Bleue</strong><br>
+          6 et 7 rue des Rochettes<br>
+          44000 Nantes
+        </address>
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=6+rue+des+Rochettes+44000+Nantes"
+          class="contact-itineraire"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Obtenir l'itinéraire →
+        </a>
+      </div>
+
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps?q=6%20rue%20des%20Rochettes%2044000%20Nantes&output=embed"
+          title="Plan d'accès au Cabinet La Note Bleue, 6 et 7 rue des Rochettes, 44000 Nantes"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</Layout>
+
+<style>
+  /* === Hero de page intérieure — cohérent avec Ressources/Parcours/Équipe === */
+  .hero-page {
+    padding: 4.5rem 2rem 5rem;
+  }
+  .hero-page h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    max-width: 820px;
+  }
+  .hero-page .hero-lede {
+    font-size: 1.05rem;
+    max-width: 680px;
+    margin-bottom: 0;
+  }
+
+  /* === Section Doctolib === */
+  .contact-lede {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    line-height: 1.85;
+    max-width: 720px;
+    margin-bottom: 2.2rem;
+    font-weight: 300;
+  }
+  .btn-group {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* === Section Adresse + Plan === */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.6fr;
+    gap: 3.5rem;
+    align-items: stretch;
+    margin-top: 1rem;
+  }
+
+  .contact-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.2rem 2rem;
+    background: #ffffff;
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 2px 8px rgba(30, 58, 95, 0.04);
+    border-radius: 4px;
+  }
+
+  .contact-label {
+    font-family: 'Mulish', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--gold-deep);
+    margin-bottom: 1rem;
+  }
+
+  .contact-infos address {
+    font-style: normal;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+  .contact-infos address strong {
+    color: var(--blue-deep);
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    display: inline-block;
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-itineraire {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--blue-deep);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    align-self: flex-start;
+  }
+  .contact-itineraire:hover {
+    color: var(--gold);
+  }
+
+  .contact-map {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    aspect-ratio: 16 / 10;
+    background: var(--blue-deep);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(30, 58, 95, 0.18);
+  }
+  .contact-map iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* === Responsive === */
+  @media (max-width: 768px) {
+    .hero-page {
+      padding: 3rem 1.2rem 3.5rem;
+    }
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .contact-map {
+      aspect-ratio: 4 / 3;
+      min-height: 300px;
+    }
+  }
+</style>
