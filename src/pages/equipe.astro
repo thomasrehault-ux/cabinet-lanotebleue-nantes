@@ -1,0 +1,492 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const axes = [
+  {
+    id: 'psychologie',
+    numero: '01',
+    titre: 'Psychologie',
+    soustitre: 'Comprendre, traverser, réparer',
+    description: "Travail sur l'histoire, l'image du corps, le mental restrictif, le trauma. Accompagnement individuel, et aussi en couple ou en famille lorsque cela fait sens.",
+    praticiens: [
+      {
+        nom: 'Aude Réhault',
+        role: 'Psychologue clinicienne · Cofondatrice du cabinet',
+        formation: "EPP Paris · DU Psychotraumatologie, Université Paris Descartes · Formation à l'hypnose, IFH",
+        note: "Créatrice de SOS Anor Grand Ouest en 2017. Autrice d'un ouvrage paru chez Dunod en 2023.",
+        doctolib: 'https://www.doctolib.fr/psychologue/nantes/aude-rehault',
+      },
+      {
+        nom: 'Charles-Antoine Menanteau',
+        role: 'Psychologue clinicien · Psychothérapeute',
+        formation: 'ESGCI · EHEI · UCO / IPSA Angers',
+        note: null,
+        doctolib: 'https://www.doctolib.fr/psychologue/nantes/charles-antoine-menanteau',
+      },
+      {
+        nom: 'Nathalie Saget',
+        role: 'Psychologue clinicienne · Thérapeute conjugale et familiale',
+        formation: 'DESS Paris 7 · DU Paris 6 · DFSSU Paris 8',
+        note: 'Accompagnements individuels, en couple et en famille.',
+        doctolib: 'https://www.doctolib.fr/psychologue/nantes/nathalie-saget',
+      },
+    ],
+  },
+  {
+    id: 'dietetique',
+    numero: '02',
+    titre: 'Diététique & nutrition',
+    soustitre: 'Réapprendre à se nourrir, sans peur',
+    description: "Un accompagnement nutritionnel patient, sans injonction, qui tient compte du corps et de ce que la maladie a déréglé. Micronutrition, rééducation alimentaire, réconciliation avec la faim et la satiété.",
+    praticiens: [
+      {
+        nom: 'Julie Basset',
+        role: 'Diététicienne · Micronutritionniste',
+        formation: 'BTS Diététique · DU Micronutrition, Université de Bourgogne',
+        note: null,
+        doctolib: 'https://www.doctolib.fr/dieteticien/nantes/julie-basset-nantes',
+      },
+      {
+        nom: 'Emilie Grasset',
+        role: 'Diététicienne · Nutritionniste',
+        formation: null,
+        note: null,
+        doctolib: 'https://www.doctolib.fr/dieteticien-nutritionniste/nantes/emilie-grasset',
+      },
+      {
+        nom: 'Marine Boni',
+        role: 'Diététicienne · Nutritionniste',
+        formation: null,
+        note: null,
+        doctolib: 'https://www.doctolib.fr/dieteticien/nantes/marine-boni',
+      },
+    ],
+  },
+  {
+    id: 'psychomotricite',
+    numero: '03',
+    titre: 'Psychomotricité',
+    soustitre: 'Réhabiter son corps',
+    description: "Un travail corporel doux et progressif pour restaurer le lien au corps vécu : relaxation, respiration, conscience corporelle, pratiques médiatisées. Essentiel dans les troubles où le corps est devenu étranger.",
+    praticiens: [
+      {
+        nom: 'Blanche Augarde-Dollé',
+        role: 'Psychomotricienne',
+        formation: 'Institut de Psychomotricité de la Salpêtrière',
+        note: 'Pratiques complémentaires : yoga, réflexologie, méditation, mime, relaxation.',
+        doctolib: 'https://www.doctolib.fr/psychomotricien/paris/blanche-augarde-dolle',
+      },
+      {
+        nom: 'Séverine Gauvin',
+        role: 'Psychomotricienne',
+        formation: null,
+        note: null,
+        doctolib: '#',
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Équipe · Cabinet La Note Bleue · Nantes"
+  description="Une équipe pluridisciplinaire à Nantes pour les troubles du comportement alimentaire : psychologues, diététiciennes, psychomotriciennes. Prise de rendez-vous par Doctolib."
+  canonicalPath="/equipe"
+>
+  <!-- ========== HERO ========== -->
+  <section class="hero-page">
+    <div class="container">
+      <div class="hero-label">L'équipe</div>
+      <h1 class="hero-title">Trois axes de soin,<br />une même exigence clinique.</h1>
+      <p class="hero-subtitle">
+        Les troubles du comportement alimentaire traversent le corps, l'esprit et l'histoire.
+        Aucune discipline seule ne suffit. Notre équipe pluridisciplinaire travaille en synergie,
+        autour d'un projet de soin commun pour chaque patient.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== AXES ========== -->
+  {axes.map((axe) => (
+    <section class="axe-section reveal" id={axe.id}>
+      <div class="container">
+        <div class="axe-header">
+          <div class="axe-numero">{axe.numero}</div>
+          <div class="axe-titre-bloc">
+            <h2 class="axe-titre">{axe.titre}</h2>
+            <p class="axe-soustitre">{axe.soustitre}</p>
+          </div>
+        </div>
+        <p class="axe-description">{axe.description}</p>
+
+        <div class="praticiens-grid">
+          {axe.praticiens.map((p) => (
+            <article class="praticien-card">
+              <h3 class="praticien-nom">{p.nom}</h3>
+              <p class="praticien-role">{p.role}</p>
+              {p.formation && <p class="praticien-formation">{p.formation}</p>}
+              {p.note && <p class="praticien-note">{p.note}</p>}
+              {p.doctolib && p.doctolib !== '#' ? (
+                <a href={p.doctolib} class="praticien-doctolib" target="_blank" rel="noopener noreferrer">
+                  Prendre rendez-vous sur Doctolib →
+                </a>
+              ) : (
+                <span class="praticien-doctolib praticien-doctolib-placeholder">
+                  Prise de rendez-vous à venir
+                </span>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- ========== ADRESSE ========== -->
+  <section class="adresse-section reveal">
+    <div class="container">
+      <div class="adresse-inner">
+        <div class="adresse-label">Un lieu unique</div>
+        <h2 class="adresse-titre">Toute l'équipe sous le même toit.</h2>
+        <p class="adresse-texte">
+          Les consultations ont toutes lieu à la même adresse, à Nantes. Ce choix n'est pas
+          logistique : il permet la circulation discrète de l'information clinique entre
+          praticiens, et évite au patient de raconter son histoire à chaque porte.
+        </p>
+        <p class="adresse-address">
+          Cabinet La Note Bleue<br />
+          6 et 7 rue des Rochettes<br />
+          44000 Nantes
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta-final reveal">
+    <div class="container">
+      <h2 class="cta-titre">Prendre rendez-vous.</h2>
+      <p class="cta-texte">
+        Chaque praticien gère son propre agenda Doctolib. Choisissez l'axe qui correspond à
+        votre situation, ou contactez-nous si vous avez besoin d'être orienté·e.
+      </p>
+      <div class="cta-actions">
+        <a href="#psychologie" class="btn-secondary">Psychologie</a>
+        <a href="#dietetique" class="btn-secondary">Diététique</a>
+        <a href="#psychomotricite" class="btn-secondary">Psychomotricité</a>
+      </div>
+      <p class="cta-note">
+        Besoin d'aide pour choisir ? <a href="/contact">Nous écrire</a>.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ========== HERO PAGE ========== */
+  .hero-page {
+    padding: 11rem 0 5rem;
+    background: var(--warm-white);
+    border-bottom: 1px solid rgba(30, 58, 95, 0.08);
+  }
+
+  .hero-label {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--blue-deep);
+    margin-bottom: 1.8rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 720px;
+    font-weight: 300;
+  }
+
+  /* ========== AXE SECTION ========== */
+  .axe-section {
+    padding: 6rem 0;
+    border-bottom: 1px solid rgba(30, 58, 95, 0.08);
+  }
+
+  .axe-section:nth-child(even) {
+    background: var(--cream);
+  }
+
+  .axe-header {
+    display: flex;
+    align-items: baseline;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .axe-numero {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 3.5rem;
+    color: var(--gold);
+    line-height: 1;
+    font-weight: 400;
+    flex-shrink: 0;
+  }
+
+  .axe-titre-bloc {
+    flex: 1;
+  }
+
+  .axe-titre {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    color: var(--blue-deep);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .axe-soustitre {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  .axe-description {
+    font-family: var(--font-body);
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    max-width: 780px;
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+  }
+
+  /* ========== PRATICIENS GRID ========== */
+  .praticiens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .praticien-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(30, 58, 95, 0.12);
+    border-top: 3px solid var(--gold);
+    padding: 2.2rem 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .axe-section:nth-child(even) .praticien-card {
+    background: var(--warm-white);
+  }
+
+  .praticien-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(30, 58, 95, 0.08);
+  }
+
+  .praticien-nom {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--blue-deep);
+    line-height: 1.2;
+  }
+
+  .praticien-role {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .praticien-formation {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .praticien-note {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(30, 58, 95, 0.08);
+  }
+
+  .praticien-doctolib {
+    margin-top: auto;
+    padding-top: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--blue-deep);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .praticien-doctolib:hover {
+    color: var(--gold);
+  }
+
+  .praticien-doctolib-placeholder {
+    color: var(--text-tertiary, #8a8a8a);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* ========== ADRESSE ========== */
+  .adresse-section {
+    padding: 6rem 0;
+    background: var(--blue-deep);
+    color: var(--warm-white);
+  }
+
+  .adresse-inner {
+    max-width: 720px;
+  }
+
+  .adresse-label {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+
+  .adresse-titre {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--warm-white);
+  }
+
+  .adresse-texte {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .adresse-address {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  /* ========== CTA FINAL ========== */
+  .cta-final {
+    padding: 6rem 0;
+    background: var(--cream);
+    text-align: center;
+  }
+
+  .cta-titre {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    color: var(--blue-deep);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+
+  .cta-texte {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .cta-note {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+
+  .cta-note a {
+    color: var(--blue-deep);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    transition: color 0.3s ease;
+  }
+
+  .cta-note a:hover {
+    color: var(--gold);
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 768px) {
+    .hero-page {
+      padding: 9rem 0 4rem;
+    }
+
+    .axe-section {
+      padding: 4rem 0;
+    }
+
+    .axe-header {
+      gap: 1.5rem;
+    }
+
+    .axe-numero {
+      font-size: 2.5rem;
+    }
+
+    .adresse-section,
+    .cta-final {
+      padding: 4rem 0;
+    }
+
+    .praticiens-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>
