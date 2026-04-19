@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Mentions légales · Cabinet La Note Bleue · Nantes"
+  description="Mentions légales, informations éditoriales et informations relatives à l'hébergement du site du Cabinet La Note Bleue à Nantes."
+  canonicalPath="/mentions-legales"
+>
+  <section class="hero hero-page">
+    <div class="hero-inner reveal">
+      <div class="hero-label">Informations légales</div>
+      <h1>Mentions <em>légales</em></h1>
+      <p class="hero-lede">
+        Informations relatives à l'édition, à l'hébergement et à l'utilisation du site du Cabinet La Note Bleue.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-warm-white">
+    <div class="inner-narrow reveal">
+      <div class="legal-block">
+        <h2>Édition du site</h2>
+        <p>
+          Le présent site est édité par <strong>Aude Réhault</strong>, entreprise individuelle,
+          située au <strong>7 Rue des Rochettes, 44000 Nantes</strong>.
+        </p>
+        <ul class="legal-list">
+          <li><strong>E-mail :</strong> <a href="mailto:arehault@gmail.com">arehault@gmail.com</a></li>
+          <li><strong>Téléphone :</strong> <a href="tel:+33762237287">07 62 23 72 87</a></li>
+          <li><strong>SIREN :</strong> 530 360 908</li>
+        </ul>
+      </div>
+
+      <div class="legal-block">
+        <h2>Direction de la publication</h2>
+        <p>
+          La directrice de la publication est <strong>Aude Réhault</strong>.
+        </p>
+      </div>
+
+      <div class="legal-block">
+        <h2>Présentation du cabinet</h2>
+        <p>
+          Le site présente un cabinet pluridisciplinaire réunissant plusieurs praticiens exerçant chacun
+          sous leur propre responsabilité professionnelle.
+        </p>
+      </div>
+
+      <div class="legal-block">
+        <h2>Hébergement</h2>
+        <p>
+          Le site est hébergé par <strong>Cloudflare, Inc.</strong>,
+          101 Townsend St, San Francisco, CA 94107, United States.
+        </p>
+        <p>
+          Le nom de domaine est géré auprès de <strong>OVHcloud</strong>.
+        </p>
+      </div>
+
+      <div class="legal-block">
+        <h2>Données personnelles</h2>
+        <p>
+          Le site ne comporte pas de formulaire de contact et, à la connaissance de l'éditrice,
+          n'utilise pas d'outil de mesure d'audience ni de cookies à finalité publicitaire.
+        </p>
+        <p>
+          Pour toute question relative aux données personnelles, vous pouvez écrire à
+          <a href="mailto:arehault@gmail.com">arehault@gmail.com</a>.
+        </p>
+      </div>
+
+      <div class="legal-block">
+        <h2>Propriété intellectuelle</h2>
+        <p>
+          L'ensemble des contenus présents sur ce site, notamment les textes, éléments graphiques,
+          logos, photographies, illustrations, ainsi que leur mise en forme, sont protégés par le droit
+          de la propriété intellectuelle, sauf mention contraire.
+        </p>
+        <p>
+          Toute reproduction, représentation, adaptation, diffusion ou exploitation, totale ou partielle,
+          de ces contenus, par quelque procédé que ce soit, sans autorisation préalable écrite, est interdite,
+          sauf dans les cas prévus par la loi.
+        </p>
+      </div>
+
+      <div class="legal-block">
+        <h2>Limitation de responsabilité</h2>
+        <p>
+          Les informations diffusées sur ce site sont fournies à titre informatif et ont vocation à présenter
+          l'activité du cabinet. Elles ne sauraient se substituer à une consultation, à un avis médical,
+          psychologique, diététique ou paramédical individualisé.
+        </p>
+        <p>
+          Malgré le soin apporté à la rédaction et à la mise à jour des contenus, l'éditrice ne peut garantir
+          l'exactitude, l'exhaustivité ou l'actualité permanente des informations publiées. L'utilisation des
+          informations disponibles sur le site se fait sous la responsabilité exclusive de l'utilisateur.
+        </p>
+        <p>
+          L'éditrice ne pourra être tenue responsable des dommages directs ou indirects pouvant résulter de
+          l'accès au site, de son utilisation, ou de l'impossibilité d'y accéder, sous réserve des dispositions
+          légales applicables.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-block {
+    background: #ffffff;
+    border-top: 3px solid var(--gold);
+    border-radius: 10px;
+    padding: 2rem 2.2rem;
+    box-shadow: 0 2px 8px rgba(30, 58, 95, 0.04);
+    margin-bottom: 1.5rem;
+  }
+
+  .legal-block h2 {
+    margin-bottom: 1rem;
+  }
+
+  .legal-block p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.85;
+    margin-bottom: 1rem;
+  }
+
+  .legal-block p:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+  }
+
+  .legal-list li {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .legal-list li:last-child {
+    border-bottom: none;
+  }
+
+  .legal-block a {
+    color: var(--blue-deep);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(30, 58, 95, 0.25);
+  }
+
+  .legal-block a:hover {
+    color: var(--gold-deep);
+    border-bottom-color: var(--gold);
+  }
+</style>
