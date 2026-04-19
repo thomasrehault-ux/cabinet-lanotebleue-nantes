@@ -180,36 +180,9 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  /* Hero de page intérieure — moins imposant que la home */
-  .hero-page {
-    padding: 4.5rem 2rem 5rem;
-  }
   .hero-page h1 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
     max-width: 800px;
   }
-  .hero-page .hero-lede {
-    font-size: 1.05rem;
-    max-width: 680px;
-    margin-bottom: 0;
-  }
-
-  /* Section-head sans numéro romain */
-  .section-head-simple {
-    gap: 0;
-  }
-  .section-head-simple .section-head-text {
-    width: 100%;
-  }
-
-  /* Blocs de prose (paragraphes et listes longues) */
-  .prose p {
-    font-size: 1rem;
-    color: var(--text-mid);
-    margin-bottom: 1.3rem;
-    line-height: 1.85;
-  }
-  .prose p:last-child { margin-bottom: 0; }
 
   .prose-list {
     list-style: none;
@@ -250,7 +223,7 @@ import Layout from '../layouts/Layout.astro';
     margin-top: 2rem;
   }
   .sub-section h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-display);
     font-size: 1.45rem;
     color: var(--blue-deep);
     font-weight: 500;
@@ -292,7 +265,7 @@ import Layout from '../layouts/Layout.astro';
     align-items: start;
   }
   .axe-detail-num {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-display);
     font-style: italic;
     font-size: 2rem;
     color: var(--gold);
@@ -301,7 +274,7 @@ import Layout from '../layouts/Layout.astro';
     padding-top: 0.3rem;
   }
   .axe-detail h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-display);
     font-size: 1.25rem;
     color: var(--blue-deep);
     font-weight: 600;

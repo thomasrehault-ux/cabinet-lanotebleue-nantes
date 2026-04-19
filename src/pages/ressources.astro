@@ -81,27 +81,7 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  /* === Hero de page intérieure — cohérent avec Parcours/Équipe === */
-  .hero-page {
-    padding: 4.5rem 2rem 5rem;
-  }
-  .hero-page h1 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    max-width: 820px;
-  }
-  .hero-page .hero-lede {
-    font-size: 1.05rem;
-    max-width: 680px;
-    margin-bottom: 0;
-  }
-
   /* === Section livre — reprise du pattern de l'index === */
-  .livre-grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.6fr;
-    gap: 4rem;
-    align-items: center;
-  }
   .livre-visuel {
     position: relative;
   }
@@ -147,13 +127,6 @@ import Layout from '../layouts/Layout.astro';
   .livre-content p:last-of-type {
     margin-bottom: 2rem;
   }
-  .livre-content .btn-group {
-    display: flex;
-    gap: 1.2rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
   /* === Section interview vidéo === */
   .video-lede {
     font-size: 1.05rem;
@@ -182,13 +155,6 @@ import Layout from '../layouts/Layout.astro';
 
   /* === Responsive === */
   @media (max-width: 768px) {
-    .hero-page {
-      padding: 3rem 1.2rem 3.5rem;
-    }
-    .livre-grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
     .livre-visuel::before {
       top: 12px;
       right: -12px;

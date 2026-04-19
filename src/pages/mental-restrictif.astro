@@ -133,7 +133,7 @@ const signes = [
       </div>
     </div>
     <div class="divider-gold"></div>
-    <p class="signes-intro">Aucun signe, pris isolément, ne suffit à parler de mental restrictif. Certains peuvent même se présenter comme des traits de personnalité ordinaires. Les 17 signes ne sont pas forcément tous présents. Leur combinaison, et leur rigidification qui témoigne de la présence du mental restrictif.</p>
+    <p class="signes-intro">Aucun signe, pris isolément, ne suffit à parler de mental restrictif. Certains peuvent même se présenter comme des traits de personnalité ordinaires. Les 17 signes ne sont pas forcément tous présents. C'est leur combinaison, et leur rigidification, qui témoigne de la présence du mental restrictif.</p>
 
     <div class="signes-grid">
       {signes.map((signe, idx) => (
@@ -142,7 +142,7 @@ const signes = [
           <div class="signe-body">
             <h3>{signe.titre}</h3>
             <p>{signe.texte}</p>
-            <blockquote class="signe-citation">{signe.citation}</blockquote>
+            {signe.citation && <blockquote class="signe-citation">{signe.citation}</blockquote>}
           </div>
         </article>
       ))}
@@ -190,41 +190,9 @@ const signes = [
 </Layout>
 
 <style>
-  /* Hero de page intérieure */
-  .hero-page {
-    padding: 4.5rem 2rem 5rem;
-  }
   .hero-page h1 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
     max-width: 800px;
   }
-  .hero-page .hero-lede {
-    font-size: 1.05rem;
-    max-width: 720px;
-    margin-bottom: 0;
-  }
-
-  /* Section-head sans numéro romain */
-  .section-head-simple {
-    gap: 0;
-  }
-  .section-head-simple .section-head-text {
-    width: 100%;
-  }
-
-  /* Prose pour sections narratives */
-  .prose p {
-    font-size: 1rem;
-    color: var(--text-mid);
-    margin-bottom: 1.3rem;
-    line-height: 1.85;
-  }
-  .prose p:last-child { margin-bottom: 0; }
-  .prose strong {
-    color: var(--blue-deep);
-    font-weight: 600;
-  }
-
   /* Section 17 signes — head et intro */
   .signes-head { max-width: 820px; margin-left: auto; margin-right: auto; }
   .signes-intro {

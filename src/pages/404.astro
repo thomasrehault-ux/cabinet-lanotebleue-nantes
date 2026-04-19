@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Page introuvable · Cabinet La Note Bleue · Nantes"
+  description="La page demandée est introuvable. Retrouvez les principales informations du Cabinet La Note Bleue à Nantes."
+  canonicalPath="/404"
+  noindex={true}
+>
+  <section class="hero hero-page">
+    <div class="hero-inner reveal">
+      <div class="hero-label">Erreur 404</div>
+      <h1>Cette page <em>n'existe pas</em></h1>
+      <p class="hero-lede">
+        Le contenu recherché n'est peut-être plus disponible, ou l'adresse saisie n'est pas la bonne.
+      </p>
+      <div class="cta-group">
+        <a href="/" class="btn-primary">Retour à l'accueil</a>
+        <a href="/contact" class="btn-secondary">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-page {
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-page .hero-lede {
+    margin-bottom: 2rem;
+    max-width: 680px;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+</style>
