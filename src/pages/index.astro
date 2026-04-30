@@ -36,6 +36,10 @@ import Layout from '../layouts/Layout.astro';
         <p>Le Cabinet La Note Bleue Nantes réunit des psychologues, des diététiciennes et des psychomotriciennes autour d'une même conviction clinique : traiter un trouble des conduites alimentaires suppose d'aller <strong>au-delà des symptômes visibles</strong>.</p>
         <p>Derrière l'anorexie, la boulimie ou l'hyperphagie, il existe une structure psycho-corporelle commune, transdiagnostique, que nous appelons le <strong>mental restrictif</strong>. C'est en travaillant cette structure, en même temps que le rapport au corps et à l'alimentation, que s'ouvre une trajectoire de soin durable.</p>
         <p>Notre approche, articulée en synergie entre les trois axes (corps, psychisme, diététique), est le fruit de <strong>30 ans d'expérience clinique</strong> auprès de personnes souffrant de TCA.</p>
+        <p class="entry-links">
+          <a href="/notre-approche-tca-nantes/">Comprendre notre approche des TCA à Nantes →</a><br>
+          <a href="/comprendre-quand-consulter/">Comprendre quand consulter →</a>
+        </p>
       </div>
       <aside class="presentation-aside">
         <div class="label">Distinction utile</div>
@@ -182,3 +186,22 @@ import Layout from '../layouts/Layout.astro';
 </section>
 
 </Layout>
+
+<style>
+  .entry-links {
+    margin-top: 1.4rem;
+  }
+
+  .entry-links a {
+    color: var(--gold-deep);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid var(--gold);
+    line-height: 2;
+  }
+
+  .entry-links a:hover {
+    color: var(--blue-deep);
+    border-bottom-color: var(--blue-deep);
+  }
+</style>

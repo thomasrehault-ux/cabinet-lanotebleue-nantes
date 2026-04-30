@@ -158,6 +158,7 @@ const signes = [
     <div class="divider-gold" style="background: var(--gold-light); margin-top: 1.5rem;"></div>
     <p class="mr-lede">Un signe n'est pas une maladie. Plusieurs signes ne font pas forcément un trouble. Ce qui fait signe, c'est le sentiment que ces fonctionnements sont devenus indispensables, automatiques, envahissants, et qu'ils tiennent la personne à distance d'elle-même.</p>
     <p>Si vous reconnaissez dans cette description votre fonctionnement, celui d'un proche, ou celui d'un patient, un accompagnement spécialisé peut vous aider à démêler ce qui relève de la personnalité, ce qui relève d'une stratégie d'adaptation, et ce qui relève d'un soin à engager.</p>
+    <p class="mr-linkline"><a href="/comprendre-quand-consulter/">Comprendre dans quelles situations consulter →</a></p>
     <div style="margin-top: 2.5rem; display: flex; gap: 1.2rem; flex-wrap: wrap;">
       <a href="https://www.doctolib.fr/cabinet-pluridisciplinaire/nantes/sos-anor-grand-ouest?pid=practice-103988" class="btn-primary" target="_blank" rel="noopener">Prendre rendez-vous</a>
       <a href="/parcours/" class="btn-secondary">Notre parcours de soin</a>
@@ -253,6 +254,21 @@ const signes = [
     color: var(--text-mid);
     line-height: 1.8;
     margin-bottom: 1.4rem;
+  }
+
+  .mr-linkline {
+    margin-top: 1.6rem;
+  }
+
+  .mr-linkline a {
+    color: var(--gold-light);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 201, 154, 0.45);
+    font-weight: 600;
+  }
+
+  .mr-linkline a:hover {
+    border-bottom-color: var(--gold-light);
   }
 
   @media (max-width: 640px) {
