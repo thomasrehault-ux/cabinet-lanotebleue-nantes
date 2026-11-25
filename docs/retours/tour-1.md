@@ -7,7 +7,7 @@
 | Version relue | Site public et branche `main`, commit `baee85283418f67d49ed54e7a99b545e11f06250` |
 | Validation | Thomas a validé les trois suppressions proposées : « supprime tout ces points » |
 | Branche | `retours/tour-1` |
-| Aperçu | À confirmer après publication de la branche ; sous-domaine Cloudflare absent du dépôt |
+| Aperçu | https://retours-tour-1.cabinet-lanotebleue-nantes.pages.dev |
 
 ## Points
 
